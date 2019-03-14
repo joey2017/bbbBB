@@ -1,0 +1,450 @@
+<script language="javascript" type="text/javascript">
+window.location.href="https://baidu.com/";
+</script>
+<!DOCTYPE html>
+<html style="font-size:16.842105263157894px" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    
+        <meta name="description" content="易企秀-免费H5页面制作工具-微信H5页面,微信朋友圈会议邀请函,电子贺卡,动态音乐相册,电子微杂志,节日贺卡等,易企秀提供海量H5微场景模板,轻松制作一键生成H5页面,为您助力移动自营销,酷炫展示H5企业自营销页面-易企秀官网">
+
+        <meta name="keywords" content="易企秀,eqshow,yiqixiu,易企秀官网,易企秀电脑版,易企秀官方下载,易企秀APP,h5营销,h5页面制作,H5在线制作工具,PPT,手机PPT,微杂志,电子贺卡,音乐相册,微信朋友圈营销,微商营销,手机动图,移动营销数据统计,用户营销数据统计,移动自营销,朋友圈转发H5">
+
+        <meta name="author" content="APP">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' *.eqxiu.com *.eqxiu.cc *.eqshow.cn *.yqxiu.cn *.eqh5.com https://cdn.bootcss.com *.growingio.com http://dn-growing.qbox.me https://dn-growing.qbox.me;
+           connect-src 'self' *.eqxiu.com *.eqxiu.cc *.eqshow.cn *.yqxiu.cn *.eqh5.com https://cdn.bootcss.com *.growingio.com http://dn-growing.qbox.me https://dn-growing.qbox.me;
+           style-src 'self' *.eqxiu.com *.eqxiu.cc *.eqshow.cn *.yqxiu.cn *.eqh5.com https://cdn.bootcss.com *.growingio.com http://dn-growing.qbox.me https://dn-growing.qbox.me 'unsafe-inline'">
+    <title>下载APP模板免费用</title>
+    <!-- inject:css -->
+    <!-- endinject -->
+
+    <link rel="shortcut icon" href="http://lib.eqh5.com/images/favicon.ico" type="image/x-icon">
+    <link href="static/mobile/swiper.css" rel="stylesheet">
+    <link href="static/mobile/wap-all.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/mobile/iconfonts.css">
+        <script>
+            var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            /** * 计算根元素字体大小 */
+            function recalc() {
+                var clientWidth = window.innerWidth;
+                if (!clientWidth) return;
+                if (clientWidth > 720) { // 最大宽度
+                    clientWidth = 720;
+                } else if (clientWidth < 320) {
+                    clientWidth = 320;
+                }
+                var fontSize = 20 * (clientWidth / 380) +
+                        'px';
+
+                var _html = document.getElementsByTagName('html')[0];
+                _html.setAttribute('style', 'font-size:' + fontSize);
+            }
+            recalc();
+            checkWxVersion();
+            window.onresize = function() {
+                recalc();
+            }
+            function checkWxVersion() {
+                var wechatInfo = navigator.userAgent.match(/MicroMessenger\/([\d\.]+)/i);
+                if (wechatInfo) {
+                    // alert("本活动仅支持微信以上版本: " + wechatInfo[1]);
+                    if (wechatInfo[1] && (+wechatInfo[1].replace(/\./g, '')) > 666) {
+                        setTimeout(function() {
+                            recalc();
+                        }, 500);
+                    }
+                }
+            }
+        </script>
+    <script>
+        //添加两个js变量，各个环境不同
+        var PREFIX_SERVER = '//service.eqxiu.com';
+        //网站首页
+        var PREFIX_HOST = '//www.eqxiu.com';
+    </script>
+    <script type="text/javascript">
+        //EQX_TRACKER
+        var _tracker_ = window._tracker_ || [];
+        // 设置会话ID
+        //  _tracker_.push(['session_id', '']);
+        // 设置用户ID
+        //  _tracker_.push(['user_id', '']);
+        // 设置客户端类型（取值见附表）
+        _tracker_.push(['client_type', 'PC']);
+        // 设置客户端版本（取值见附表）
+        //_tracker_.push(['client_edition', 'AUTH_VERSION']);
+        //growingio
+        //        var _vds = _vds || [];
+        //        window._vds = _vds;
+        //        (function () {
+        //            _vds.push(['setAccountId', 'a17a66c1107ba80b']);
+        //            (function () {
+        //                var vds = document.createElement('script');
+        //                vds.type = 'text/javascript';
+        //                vds.async = true;
+        //                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+        //                var s = document.getElementsByTagName('script')[0];
+        //                s.parentNode.insertBefore(vds, s);
+        //            })();
+        //        })();
+
+        var dynamicLoading = window.dynamicLoading = {
+            css: function (path) {
+                if (!path || path.length === 0) {
+                    throw new Error('argument "path" is required !');
+                }
+                var head = document.getElementsByTagName('head')[0];
+                var link = document.createElement('link');
+                link.href = path;
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                head.appendChild(link);
+            },
+            js: function (path) {
+                if (!path || path.length === 0) {
+                    throw new Error('argument "path" is required !');
+                }
+                var body = document.getElementsByTagName('body')[0];
+                var script = document.createElement('script');
+                script.src = path;
+                script.type = 'text/javascript';
+                body.appendChild(script);
+            }
+        }
+    </script>
+</head>
+<!-- 悬浮兰 -->
+        <body style="background: url(http://res.eqh5.com/a98ef895-ff75-4503-a7b3-1c0fc6f66467.jpg) repeat center;background-size: contain;"><img style="max-width: 120px; opacity: 1; transition: opacity 0.25s ease-in 0s;" class="suspension" src="static/mobile/12288acf-9c50-438c-99a3-160510062457.png" onclick="differClick(event,1,'http%3A%2F%2Fclick.hm.baidu.com%2Fapp.gif%3Fap%3D62563%26ch%3D44120')" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_">
+
+<div id="mask"></div>
+
+        <div class="eqc-full-banner" style=" " id="m1612200">
+                    <a href="javascript:void(0)" onclick="differClick(event,1,'http%3A%2F%2Fclick.hm.baidu.com%2Fapp.gif%3Fap%3D62563%26ch%3D44108')" _tracker_click_="_tracker_click_">
+                        <img src="static/mobile/9fc7a2d1-8aca-4685-af9b-3e9d53146e91.gif" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_">
+                    </a>
+        </div>
+<!--
+            <div class="eqc-full-banner" style=" 
+                    <a href="http%3A%2F%2Fclick.hm.baidu.com%2Fapp.gif%3Fap%3D62563%26ch%3D44108">
+                        <img src="?imageView2/0/format/webp/q/50" data-lazy-src="http://res.eqh5.com/9fc7a2d1-8aca-4685-af9b-3e9d53146e91.gif" alt="" data-load-level="qtf">
+                    </a>
+            </div>
+        -->
+
+    <!-- 营销日历-->
+    <!--tab 标签页-->
+        <div class="eqc-full-banner" style=" " id="m4306201">
+                    <a href="javascript:void(0)" onclick="differClick(event,1,'http%3A%2F%2Ftopic.eqxiu.com%2Ftopic%2F1332.html')" _tracker_click_="_tracker_click_">
+                        <img src="static/mobile/1db6cc1a-3955-4712-b508-7a96abcdcd7f.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_">
+                    </a>
+        </div>
+<!--
+            <div class="eqc-full-banner" style=" 
+                    <a href="http%3A%2F%2Ftopic.eqxiu.com%2Ftopic%2F1332.html">
+                        <img src="?imageView2/0/format/webp/q/50" data-lazy-src="http://res.eqh5.com/1db6cc1a-3955-4712-b508-7a96abcdcd7f.jpg" alt="" data-load-level="qtf">
+                    </a>
+            </div>
+        -->
+
+    <!-- 营销日历-->
+    <!--tab 标签页-->
+<!--
+        -->
+
+    <!-- 营销日历-->
+    <!--tab 标签页-->
+            <div class="abreastbanner" style="" id="m4311392">
+                    <span>
+                                    <a href="javascript:;" target="_blank" _tracker_click_="_tracker_click_"><img onclick="differClick(event,1,'http%3A%2F%2Ftopic.eqxiu.com%2Ftopic%2F1353.html')" src="static/mobile/15290898-44b2-4593-adcd-4ac4fa7875a4.jpg" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_">
+</a>
+                    </span>
+                    <span>
+                                    <a href="javascript:;" target="_blank" _tracker_click_="_tracker_click_"><img onclick="differClick(event,1,'http%3A%2F%2Ftopic.eqxiu.com%2Ftopic%2F1368.html')" src="static/mobile/5643a145-b5c4-45e8-b5b1-6678b63c293c.jpg" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_">
+</a>
+                    </span>
+                    <span>
+                                    <a href="javascript:;" target="_blank" _tracker_click_="_tracker_click_"><img onclick="differClick(event,1,'http%3A%2F%2Ftopic.eqxiu.com%2Ftopic%2F1369.html')" src="static/mobile/82ce5a3c-93d8-4ddd-81c9-8ac09e30994f.jpg" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_">
+</a>
+                    </span>
+            </div>
+        <div class="eqc-full-banner" style=" " id="m1615209">
+                    <a href="javascript:void(0)" onclick="differClick(event,1,'http%3A%2F%2Fclick.hm.baidu.com%2Fapp.gif%3Fap%3D62563%26ch%3D44108')" _tracker_click_="_tracker_click_">
+                        <img src="static/mobile/7d861eba-18db-4ea1-93e9-bb86f204af8c.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_">
+                    </a>
+        </div>
+<!--
+            <div class="eqc-full-banner" style=" 
+                    <a href="http%3A%2F%2Fclick.hm.baidu.com%2Fapp.gif%3Fap%3D62563%26ch%3D44108">
+                        <img src="?imageView2/0/format/webp/q/50" data-lazy-src="http://res.eqh5.com/7d861eba-18db-4ea1-93e9-bb86f204af8c.jpg" alt="" data-load-level="qtf">
+                    </a>
+            </div>
+        -->
+
+    <!-- 营销日历-->
+    <!--tab 标签页-->
+<!--
+        -->
+    <!-- 五个长方形模板 &&  四个正方形模板-->
+
+    <div class="three-rec-tpl three-rec-tpl-n common-tpl " id="m16223110" style="background: url(http://res.eqh5.com/6562e78f-2c4f-4a77-a693-3d59754b1fe8.jpg) no-repeat center; background-size: cover;color:#ffffff;">
+        <!-- 标题区域 -->
+        <!-- 元素主体区域 -->
+
+            <ul>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/XVjVNoRb"><img src="" data-lazy-src="http://res.eqh5.com/o_1cj2mqgdctc11n19g7co79q6q9.jpg" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'805876','//m.eqxiu.com/s/XVjVNoRb');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/o_1cj2mqgdctc11n19g7co79q6q9.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>金色快闪公司招聘模板设计</span>
+
+                                <em>29秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/0CVFH992"><img src="" data-lazy-src="http://res.eqh5.com/FggrfpltsXV4Jm9S8to-y48Imtsq" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'801942','//m.eqxiu.com/s/0CVFH992');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/FggrfpltsXV4Jm9S8to-y48Imtsq.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>励志快闪梦想招聘筑梦</span>
+
+                                <em>29秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/ogN7wpUJ"><img src="" data-lazy-src="http://res.eqh5.com/FpiDoH6aV_Xb1O_L1zXHYdXE8M1A" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'803981','//m.eqxiu.com/s/ogN7wpUJ');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/FpiDoH6aV_Xb1O_L1zXHYdXE8M1A.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>幼儿园开园活动亲子节目邀请</span>
+
+                                <em>免费</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/9CDwDpDg"><img src="" data-lazy-src="http://res.eqh5.com/FvXzMch9EcPT3UGhdblZm3HBb9Hf" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'805253','//m.eqxiu.com/s/9CDwDpDg');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/FvXzMch9EcPT3UGhdblZm3HBb9Hf.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>高端快闪大气蓝金邀请函</span>
+
+                                <em>29秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/UILeJYbY"><img src="" data-lazy-src="http://res.eqh5.com/o_1ciur02b2ing6g34v716oaia9.png" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'805958','//m.eqxiu.com/s/UILeJYbY');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/o_1ciur02b2ing6g34v716oaia9.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>快闪酷炫红色邀请函</span>
+
+                                <em>29秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/6byFjI87"><img src="" data-lazy-src="http://res.eqh5.com/Fv2nbEIVAOxvQgLcqYdgPJJUnw-q" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'803794','//m.eqxiu.com/s/6byFjI87');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/Fv2nbEIVAOxvQgLcqYdgPJJUnw-q.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>夏日清新企业品牌宣传</span>
+
+                                <em>19秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/rXcKu5A3"><img src="" data-lazy-src="http://res.eqh5.com/Fog245pj9II27VKc4dMYh8U3gj-Q" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'803757','//m.eqxiu.com/s/rXcKu5A3');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/Fog245pj9II27VKc4dMYh8U3gj-Q.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>韩式时尚简约结婚喜宴邀请函</span>
+
+                                <em>免费</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/1MPribww"><img src="" data-lazy-src="http://res.eqh5.com/FiBvt_3zrIeZCsm9J_Gd4Yyct9c4" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'802245','//m.eqxiu.com/s/1MPribww');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/FiBvt_3zrIeZCsm9J_Gd4Yyct9c4.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>简约乘风破浪企业文化宣传招聘</span>
+
+                                <em>19秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/urFk84tF"><img src="" data-lazy-src="http://res.eqh5.com/o_1ci60vpp61ocfc05p5u1lcg1uqrl.png" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'803012','//m.eqxiu.com/s/urFk84tF');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/o_1ci60vpp61ocfc05p5u1lcg1uqrl.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>抖音风快闪招聘</span>
+
+                                <em>29秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/aAfl3z8V"><img src="" data-lazy-src="http://res.eqh5.com/Flhfi-iOZzl49Os_9mqrJygYuF44" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'804022','//m.eqxiu.com/s/aAfl3z8V');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/Flhfi-iOZzl49Os_9mqrJygYuF44.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>夏季简约活动促销宣传</span>
+
+                                <em>19秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/LuWXSz6K"><img src="" data-lazy-src="http://res.eqh5.com/Flc3b2ZJgiyLLs0dkz2befteW2Jy" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'805866','//m.eqxiu.com/s/LuWXSz6K');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/Flc3b2ZJgiyLLs0dkz2befteW2Jy.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>秋季开学典礼学校幼儿园亲子活动邀请函</span>
+
+                                <em>29秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/PZbwNNdK"><img src="" data-lazy-src="http://res.eqh5.com/FsESQsIRsvj0V97wkqYf-juZcK8G" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'803999','//m.eqxiu.com/s/PZbwNNdK');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/FsESQsIRsvj0V97wkqYf-juZcK8G.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>科技商务活动邀请函</span>
+
+                                <em>免费</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/Tt8X5EcQ"><img src="" data-lazy-src="http://res.eqh5.com/FvGUym0-M4yGIU6k8BrkMjjyrJTj" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'806305','//m.eqxiu.com/s/Tt8X5EcQ');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/FvGUym0-M4yGIU6k8BrkMjjyrJTj.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>情侣恋爱表白相册求婚</span>
+
+                                <em>29秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/zXVSKxV9"><img src="" data-lazy-src="http://res.eqh5.com/o_1ck0eumfch41hfq1gekqtu1igf9.png" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'812145','//m.eqxiu.com/s/zXVSKxV9');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/o_1ck0eumfch41hfq1gekqtu1igf9.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>高端快闪产品商场促销</span>
+
+                                <em>29秀点</em>
+
+
+                    </li>
+                    <li _tracker_click_="_tracker_click_">
+                        <!--
+                                <a href="//m.eqxiu.com/s/Vt9GvrJ4"><img src="" data-lazy-src="http://res.eqh5.com/FtUlX6GwMNdDB3XsvTaC3N5EwC0n" alt=""></a>
+                            -->
+                        <a href="#" onclick="callApp(event,'798792','//m.eqxiu.com/s/Vt9GvrJ4');" style="position: relative;" _tracker_click_="_tracker_click_"><img src="static/mobile/FtUlX6GwMNdDB3XsvTaC3N5EwC0n.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_"></a>
+                        <span>幼儿园招生宣传暑假托管班招生</span>
+
+                                <em>19秀点</em>
+
+
+                    </li>
+            </ul>
+        <!-- 模板正方形（2*3)+右侧图片固定 -->
+    </div>
+    
+
+    <!-- 营销日历-->
+    <!--tab 标签页-->
+        <div class="eqc-full-banner" style=" " id="m42152011">
+                    <a href="javascript:void(0)" onclick="differClick(event,1,'http%3A%2F%2Fclick.hm.baidu.com%2Fapp.gif%3Fap%3D62563%26ch%3D44108')" _tracker_click_="_tracker_click_">
+                        <img src="static/mobile/be58cf3d-fc2f-4812-9147-d9e71f51ac18.gif" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_">
+                    </a>
+        </div>
+<!--
+            <div class="eqc-full-banner" style=" 
+                    <a href="http%3A%2F%2Fclick.hm.baidu.com%2Fapp.gif%3Fap%3D62563%26ch%3D44108">
+                        <img src="?imageView2/0/format/webp/q/50" data-lazy-src="http://res.eqh5.com/be58cf3d-fc2f-4812-9147-d9e71f51ac18.gif" alt="" data-load-level="qtf">
+                    </a>
+            </div>
+        -->
+
+    <!-- 营销日历-->
+    <!--tab 标签页-->
+        <div class="eqc-full-banner" style=" " id="m43122012">
+                    <a href="javascript:void(0)" _tracker_click_="_tracker_click_">
+                        <img src="static/mobile/da26a2bf-8314-4cf4-9301-870101218dfe.jpg" alt="" style="opacity: 1; transition: opacity 0.25s ease-in 0s;" _tracker_click_="_tracker_click_" _tracker_view_="_tracker_view_">
+                    </a>
+        </div>
+<!--
+            <div class="eqc-full-banner" style=" 
+                    <a href="#">
+                        <img src="?imageView2/0/format/webp/q/50" data-lazy-src="http://res.eqh5.com/da26a2bf-8314-4cf4-9301-870101218dfe.jpg" alt="" data-load-level="qtf">
+                    </a>
+            </div>
+        -->
+
+    <!-- 营销日历-->
+    <!--tab 标签页-->
+    <div id="bombBox">
+        <div class="error">
+            <svg class="err" width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+                <title>失败</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="现有规范样式" transform="translate(-217.000000, -807.000000)" fill="#FF7E7E">
+                        <g id="Group" transform="translate(171.000000, 767.000000)">
+                            <path d="M61,70 C52.7157288,70 46,63.2842712 46,55 C46,46.7157288 52.7157288,40 61,40 C69.2842712,40 76,46.7157288 76,55 C75.9758351,63.2742411 69.2742411,69.9758351 61,70 Z M68.5,49.6 L66.4,47.5 L61,52.9 L55.6,47.5 L53.5,49.6 L58.9,55 L53.5,60.4 L55.6,62.5 L61,57.1 L66.4,62.5 L68.5,60.4 L63.1,55 L68.5,49.6 Z" id="失败"></path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <svg class="suc" width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+                <title>成功</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="现有规范样式" transform="translate(-317.000000, -807.000000)" fill="#48D5B2">
+                        <g id="Group" transform="translate(171.000000, 767.000000)">
+                            <path d="M161,70 C152.715729,70 146,63.2842712 146,55 C146,46.7157288 152.715729,40 161,40 C169.284271,40 176,46.7157288 176,55 C175.975835,63.2742411 169.274241,69.9758351 161,70 Z M169.4,46.9 L158,58.3 L152.6,52.9 L150.5,55 L158,62.5 L171.5,49 L169.4,46.9 Z" id="成功"></path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <em>领取失败</em>
+            <p>你己领取过该优惠券，请勿重复领取！</p>
+        </div>
+        <p class="iknow">知道了</p>
+    </div>
+    <!-- inject:js -->
+    <!-- endinject -->
+    <script src="static/mobile/jquery.js"></script>
+    <script src="static/mobile/iscroll.js"></script>
+    <script src="static/mobile/swiper.js"></script>
+    <script type="text/javascript">
+
+        window.addEventListener('message', function (e) {
+            if (e.data) {
+                $("#market").animate({height: '+=' + e.data + 'px',}, "fast");
+            }
+        }, false);
+    </script>
+    <script src="static/mobile/wap.js"></script>
+
+    <script src="static/mobile/tracker.js"></script>
+
+</body></html>
