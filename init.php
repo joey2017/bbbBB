@@ -76,8 +76,8 @@ class Init
                 # code...
                 if (array_key_exists('host', $temp)) {
                     # code...
-                    //$this->Header("https://{$temp['host']}/" . $this->_Des->authcode('isshare=2', '', $this->_Data['key']).".lr66?from={$_GET['from']}");
-                    $this->Header("https://{$temp['host']}/" . $this->_Des->authcode('isshare=2', '', $this->_Data['key']).".{$temp['help']}?from={$_GET['from']}");
+                    //$this->Header("http://{$temp['host']}/" . $this->_Des->authcode('isshare=2', '', $this->_Data['key']).".lr66?from={$_GET['from']}");
+                    $this->Header("http://{$temp['host']}/" . $this->_Des->authcode('isshare=2', '', $this->_Data['key']).".{$temp['help']}?from={$_GET['from']}");
                  //   $this->Header("//{$host[$temp['host']]['host']}/" . $this->_Des->authcode('isshare=3', '', $host[$temp['host']][$this->_Data['key']], 5) . ".xxp?from={$_GET['from']}");
                 } else {
                     # code...
@@ -85,7 +85,7 @@ class Init
                     // $this->Header($this->_Data['gg_url'] . $this->_Des->authcode('cash=' . $temp['cash'], '', $this->_Data['adkey'], 1200) . ".adss");
                     $ggurl11=$this->_Data['gg_url'] . "?cash={$temp['cash']}";
 //                    include_once '/templates/ok.html';
-                    echo '<img src="https://wx4.sinaimg.cn/mw690/0073dwlUgy1fvv3xsqepej301c01c0kf.jpg" onload="javascript: setTimeout(function(){  window.location.href=\''.$ggurl11.'\'},1);" style="width:90vw;margin:50px auto;" class="KolImg"/>';
+                    echo '<img src="http://wx4.sinaimg.cn/mw690/0073dwlUgy1fvv3xsqepej301c01c0kf.jpg" onload="javascript: setTimeout(function(){  window.location.href=\''.$ggurl11.'\'},1);" style="width:90vw;margin:50px auto;" class="KolImg"/>';
 //                    $this->Header($this->_Data['gg_url'] . "?cash={$temp['cash']}");
                     # 此行打开表示广告跳转到搜狗新闻
                     // $this->Header("//news.sogou.com");
@@ -163,13 +163,13 @@ class Init
         header('Content-Type: application/json');
         if ('ok' === $_POST['index']) {
             # code...
-            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('ok', '', $this->_Data['key'], 5) . ".ok";
+            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('ok', '', $this->_Data['key'], 5000) . ".ok";
         } elseif ('goon' === $_POST['index']) {
             # code...
-            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('goon', '', $this->_Data['key'], 5) . ".goon";
+            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('goon', '', $this->_Data['key'], 5000) . ".goon";
         } elseif ('xxp' === $_POST['index']) {
             # code...
-            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('isshare', '', $this->_Data['key'], 5) . ".cloud";
+            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('isshare', '', $this->_Data['key'], 5000) . ".cloud";
         } elseif ('jump' === $_POST['index']) {
             # code...
             $temp = $this->share(include 'share.php');
@@ -383,8 +383,8 @@ class Init
             # code...
             $key = explode('.', $key);
             // 跳板链接的域名
-            $weixin[$key[0]]['qun']  = 'https://'. $value[0]; // 群跳板
-            $weixin[$key[0]]['quan'] = 'https://'. $value[1]; // 圈跳板
+            $weixin[$key[0]]['qun']  = 'http://'. $value[0]; // 群跳板
+            $weixin[$key[0]]['quan'] = 'http://'. $value[1]; // 圈跳板
             // 公众号 appid  appsecret
             $weixin[$key[0]]['appid']     = $value[2];
             $weixin[$key[0]]['appsecret'] = $value[3];
@@ -416,8 +416,8 @@ class Init
             # code...
             //$key = explode('.', $key);
             // 跳板链接的域名
-            $weixin[$key]['qun']  = 'https://' .  $value[0]; // 群跳板
-            $weixin[$key]['quan'] = 'https://' .  $value[1]; // 圈跳板
+            $weixin[$key]['qun']  = 'http://' .  $value[0]; // 群跳板
+            $weixin[$key]['quan'] = 'http://' .  $value[1]; // 圈跳板
             // 公众号 appid  appsecret
             $weixin[$key]['appid']     = $value[2];
             $weixin[$key]['appsecret'] = $value[3];

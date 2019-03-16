@@ -11,5 +11,5 @@
 
 return [
   //服务器  配置顺序：0、落地 1、群跳板 2、圈跳板 3、公众号ID 4、公众号秘钥
-'yiukeo.cn' => ['s2.app1108264292.qqopenapp.com','s4.app1108264292.qqopenapp.com','wxe7547fe786b137b3','6f9a3c16f7c8b183e71416722662a4f2'],
+'suumgs.cn' => ['s2.app1108264292.qqopenapp.com','s2.app1108264292.qqopenapp.com','wx03ef96fe645f49b1','6d6ec3651cfdccc0e5afa1c8cfcef0d5'],
 ]; 

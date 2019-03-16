@@ -93,6 +93,7 @@
         $.post(apidomain, {
             index: 'ok'
         }, function(res) {
+            console.log(res);
             location.href = res.url;
         }, 'JSON');
     });

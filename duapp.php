@@ -18,8 +18,8 @@ $help = 'xiche';//带线的视频
 if($daixian===0){
     $slink='cash=nk'; //shareclick
     $stitle=$diqu.'男人！学会一次坚持50分以上,真有用！别不好意思...';
-    //$qimgurl= 'https://qqpublic.qpic.cn/qq_public/0/0-3102621442-9CF9F9361B8471CEFE86CA0F67B33968/0';
-    $qimgurl= 'https://'.$_SERVER['HTTP_HOST'].'/templates/gg.jpg';
+    //$qimgurl= 'http://qqpublic.qpic.cn/qq_public/0/0-3102621442-9CF9F9361B8471CEFE86CA0F67B33968/0';
+    $qimgurl= 'http://'.$_SERVER['HTTP_HOST'].'/templates/gg.jpg';
 }else{
     $slink = "cash=nk&host=".$pointline."&help=".$help;
     $stitle=$diqu.'少年逛自家商场竟被保安打,生气之下连自己商场都砸...'.$fuhao[array_rand($fuhao)];//带线视频的标题
@@ -32,14 +32,14 @@ return [
     'title'           => $diqu.'上市集团董事长扮穷回乡看望未婚妻被一家人嘲讽还要讹八十万，结果...'.$fuhao[array_rand($fuhao)],
     // 群图片
    // 'imgurl'          => 'http://wx1.sinaimg.cn/mw690/006fxKVJgy1fx6xlz5yf9j30ca0fi7jw.jpg',
-    'imgurl'          => 'https://'.$_SERVER['HTTP_HOST'].'/templates/xiche.jpg',
+    'imgurl'          => 'http://'.$_SERVER['HTTP_HOST'].'/templates/xiche.jpg',
     // 群描述
     'desc'            => '最新热点！你有'.mt_rand(6,20).'位好友正在观看！',
     // 圈标题
       'qtitle'          => $diqu.'上市集团董事长扮穷回乡看望未婚妻被一家人嘲讽还要讹八十万，结果...'.$fuhao[array_rand($fuhao)],//修车厂美女被搞
     // 圈图片
   // 'qimgurl'         => 'http://wx1.sinaimg.cn/mw690/006fxKVJgy1fx6xlz5yf9j30ca0fi7jw.jpg',
-     'qimgurl'         => 'https://'.$_SERVER['HTTP_HOST'].'/templates/xiche.jpg',
+     'qimgurl'         => 'http://'.$_SERVER['HTTP_HOST'].'/templates/xiche.jpg',
 
     // 开启就随机广告
     // 'rand' => [
