@@ -17,6 +17,9 @@
     var video, player;
     var vid = pageGlobal.vid;
     var playStatus = 'pending';
+    if (tip == 'goon') {
+        playStatus = 'continue';
+    }
     new Swiper('.swiper-container', {
         autoplay: 5000
     }); 
