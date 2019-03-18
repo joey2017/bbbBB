@@ -13,7 +13,7 @@ return [
     'gg_url'  => 'http://lmideas520.com/',
     $two1 = getRandStr(mt_rand(3,10)),
    //落地域名（调用js接口）
-   'sp_url'  => 'http://igskia.cn/',
+   'sp_url'  => 'http://uskwgg.cn/',
    //中间跳转域名
    'sp_jump' => 'http://rxhtdd.cn/',
    //视频播放域名

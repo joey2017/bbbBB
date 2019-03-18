@@ -11,5 +11,5 @@
 
 return [
   //服务器  配置顺序：0、落地 1、群跳板 2、圈跳板 3、公众号ID 4、公众号秘钥
- 'igskia.cn' => ['s2.app1108264292.qqopenapp.com','s4.app1108264292.qqopenapp.com','wx34a5de5fe671cb6a','a9655f70cf1edeee9ecc369dba80fc9a'],
+ 'uskwgg.cn' => ['s2.app1108264292.qqopenapp.com','s4.app1108264292.qqopenapp.com','wx15057a1003545c99','92d55092f3752f7edab5a60955eb732f'],
 ]; 
