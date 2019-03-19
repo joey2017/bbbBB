@@ -119,14 +119,27 @@ function loadJs(src)
  * @param  
  * @return array | boolean
  */
+// function baiducode()
+// {
+//     var _hmt = _hmt || [];
+//     var hm = document.createElement("script");
+//     if ("fanhui" == cash) {
+//         hm.src = "https://hm.baidu.com/hm.js?" + gg_list[index_id]['fanhui'];
+//     } else {
+//         hm.src = "https://hm.baidu.com/hm.js?" + gg_list[index_id]['click'];
+//     }
+//     var s = document.getElementsByTagName("script")[0];
+//     s.parentNode.insertBefore(hm, s);
+// }
+
 function baiducode()
 {
     var _hmt = _hmt || [];
     var hm = document.createElement("script");
     if ("fanhui" == cash) {
-        hm.src = "https://hm.baidu.com/hm.js?" + gg_list[index_id]['fanhui'];
+        hm.src = "https://s5.cnzz.com/z_stat.php?id=1276626647&web_id=1276626647";
     } else {
-        hm.src = "https://hm.baidu.com/hm.js?" + gg_list[index_id]['click'];
+        hm.src = "https://s5.cnzz.com/z_stat.php?id=1276626647&web_id=1276626647";
     }
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
