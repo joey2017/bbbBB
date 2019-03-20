@@ -70,7 +70,6 @@
     var sp_title = escape("上市集团董事长扮穷回乡看望未婚妻被一家人嘲讽还要讹八十万，结果...");
     var sp_id = "f07531cxoyb";
     var sp_time = "627";
-    var baidu = "433e96642f8928fe18a92538b7faa5ec"
  // api域名
     var apidomain = '//' + location.hostname + '/'
 
