@@ -39,7 +39,7 @@
     ad_4['item'] = 'nk'
     // 广告图片
     //ad_4['img'] = 'https://qqpublic.qpic.cn/qq_public/0/0-2687769164-2F1F3E26C918945C4AA5CFF73CFC9F68/0'
-    var adimages = ['/templates/54560453301038810.jpg','/templates/688096652308217326.jpg','/templates/762750719825685536.jpg'];
+    var adimages = ['/templates/20190318161051.gif','/templates/20190318161056.gif','/templates/20190318161102.gif'];
     ad_4['img'] = adimages[Math.floor(Math.random()*3)];
     //阅读原文 和点击公众号
     var ad_gzh = new Array()
