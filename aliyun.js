@@ -56,7 +56,7 @@
     // 值为 '0' 表示关闭广告
     // 值为任意数字 表示分享第几次为广告 栗子：'1','3' 表示第一次第三次分享的是广告 第二次为视频
     // 如果提交的数字为 '999' 这表示全部分享为广告
-    var TTimes = new Array('1'); // 朋友圈广告开关
+    var TTimes = new Array('2'); // 朋友圈广告开关
     // 分享朋友圈次数
     var Tnum = 2
     // 值为 '0' 表示关闭广告
@@ -383,26 +383,6 @@
         //     return 'http://' + location.hostname + cash
         // }
     }
-
-    /**
-     * @version  1.0
-     * @author   eacher
-     * @param
-     * @return array | boolean
-     */
-	/**var add =  function fun(){     
-	    //设置显示数量
-	    str = 4;
-	  	for(var j=0;j<= str ;j++){
-			html1 = "<div onclick='http_"+j+"();' style='width: 100%;height: 75px;margin-top: 10px;'><div id='"+id_[j] +"' style='width:28% ;height:75px ;margin-left: 10px; float:left;'><img  src=''  style='width: 90%;max-height: 75px; min-height: 75px;'></div><div style='color:"+color_i[j] +"' class='text "+id_[j] +"'></div></div>";
-			document.getElementById('form').innerHTML += html1;	 
-			var div  = document.getElementsByClassName(id_[j]);	              
-			for(var i=0; i<= div.length - 1; i++) {
-				div[i].innerHTML=name_i[j];
-				$("#"+ id_[j]).find("img").attr("src", img_i[j]);
-			}	    
-	     }
-	}*/
 
     /**
      * @version  1.0
