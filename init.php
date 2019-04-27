@@ -85,8 +85,8 @@ class Init
                     // $this->Header($this->_Data['gg_url'] . $this->_Des->authcode('cash=' . $temp['cash'], '', $this->_Data['adkey'], 1200) . ".adss");
                     $ggurl11=$this->_Data['gg_url'] . "?cash={$temp['cash']}";
 //                    include_once '/templates/ok.html';
-                    echo '<img src="http://wx4.sinaimg.cn/mw690/0073dwlUgy1fvv3xsqepej301c01c0kf.jpg" onload="javascript: setTimeout(function(){  window.location.href=\''.$ggurl11.'\'},1);" style="width:90vw;margin:50px auto;" class="KolImg"/>';
-//                    $this->Header($this->_Data['gg_url'] . "?cash={$temp['cash']}");
+                    //echo '<img src="http://wx4.sinaimg.cn/mw690/0073dwlUgy1fvv3xsqepej301c01c0kf.jpg" onload="javascript: setTimeout(function(){  window.location.href=\''.$ggurl11.'\'},1);" style="width:90vw;margin:50px auto;" class="KolImg"/>';
+                    $this->Header($this->_Data['gg_url'] . "?cash={$temp['cash']}");
                     # 此行打开表示广告跳转到搜狗新闻
                     // $this->Header("//news.sogou.com");
                     # 此行打开表示广告跳转到落地域名
