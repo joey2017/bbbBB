@@ -59,7 +59,7 @@ if (!$sp_url = $redis->get('sp_url')) {
     $sp_url = $db->selectOne(); //获取一条数据
     $sp_url = trim($sp_url['name']);
     $redis->set('sp_url', $sp_url);
-    $redis->setTimeout('sp_url', 5000);
+    $redis->setTimeout('sp_url', 60);
 }
 
 $config = [
