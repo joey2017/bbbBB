@@ -1,13 +1,4 @@
 <?php
-// vim: set expandtab cindent tabstop=4 shiftwidth=4 fdm=marker:
-// +----------------------------------------------------------------------+
-// | The CompanyName Inc                                                  |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 2013, CompanyName Inc. All rights reserved.            |
-// +----------------------------------------------------------------------+
-// | Authors: The PHP Dev Team, ISRD, CompanyName Inc.                    |
-// |                                                                      |
-// +----------------------------------------------------------------------+
 
 require_once(__DIR__ . "/src/Mysql.class.php");
 $database = require_once(__DIR__ . "/src/config.php");

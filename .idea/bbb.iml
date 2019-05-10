@@ -9,5 +9,9 @@
     <orderEntry type="module" module-name="2j6b7j.cn" />
     <orderEntry type="module" module-name="share" />
     <orderEntry type="module" module-name="general" />
+    <orderEntry type="module" module-name="admin" />
+    <orderEntry type="module" module-name="wechat_tool" />
+    <orderEntry type="module" module-name="redpack" />
+    <orderEntry type="module" module-name="lmideas520.com" />
   </component>
 </module>

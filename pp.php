@@ -11,69 +11,69 @@
 require_once(__DIR__ . "/src/Mysql.class.php");
 $database = require_once(__DIR__ . "/src/config.php");
 
-$redis = new Redis();
-$redis->connect('127.0.0.1', 6379);
+//$redis = new Redis();
+//$redis->connect('127.0.0.1', 6379);
 //开始连接数据库
-$db = Mysql::newClass();
-$db->pdoConnect([$database['dsn'], $database['username'], $database['password']]);
+//$db = Mysql::newClass();
+//$db->pdoConnect([$database['dsn'], $database['username'], $database['password']]);
 
-if (!$gg_url = $redis->get('gg_url')) {
-    $db->select('system_domain', '*', ['status' => 1, 'is_deleted' => 0, 'type' => 5], 'sort asc,id desc');
-    $gg_url = $db->selectOne(); //获取一条数据
-    $gg_url = trim($gg_url['name']);
-    $redis->set('gg_url', $gg_url);
-    $redis->setTimeout('gg_url', 5);
-}
-if (!$redirect_url = $redis->get('redirect_url')) {
-    if (!$redis->get('server_id')) {
-        $inner_ip = $_SERVER['SERVER_ADDR'];
-        $db->select('system_server', 'id,ip', ['status' => 1, 'is_deleted' => 0, 'inner_ip' => "$inner_ip"]);
-        $ip_info = $db->selectOne();
-        $redis->set('server_id', $ip_info['id']);
-    }
-    $db->select('system_domain', 'name', ['status' => 1, 'is_deleted' => 0, 'type' => 3, 'server_id' => $redis->get('server_id')], 'sort asc,id desc');
-    $redirect_url = $db->selectOne();
-    $redirect_url = trim($redirect_url['name']);
-    $redis->set('redirect_url', $redirect_url);
-    $redis->setTimeout('redirect_url', 5);
-
-}
+//if (!$gg_url = $redis->get('gg_url')) {
+//    $db->select('system_domain', '*', ['status' => 1, 'is_deleted' => 0, 'type' => 5], 'sort asc,id desc');
+//    $gg_url = $db->selectOne(); //获取一条数据
+//    $gg_url = trim($gg_url['name']);
+//    $redis->set('gg_url', $gg_url);
+//    $redis->setTimeout('gg_url', 5);
+//}
+//if (!$redirect_url = $redis->get('redirect_url')) {
+//    if (!$redis->get('server_id')) {
+//        $inner_ip = $_SERVER['SERVER_ADDR'];
+//        $db->select('system_server', 'id,ip', ['status' => 1, 'is_deleted' => 0, 'inner_ip' => "$inner_ip"]);
+//        $ip_info = $db->selectOne();
+//        $redis->set('server_id', $ip_info['id']);
+//    }
+//    $db->select('system_domain', 'name', ['status' => 1, 'is_deleted' => 0, 'type' => 3, 'server_id' => $redis->get('server_id')], 'sort asc,id desc');
+//    $redirect_url = $db->selectOne();
+//    $redirect_url = trim($redirect_url['name']);
+//    $redis->set('redirect_url', $redirect_url);
+//    $redis->setTimeout('redirect_url', 5);
+//
+//}
 
 //广告
-if (!$toopen = $redis->get('toopen')) {
-    $db->select('system_config', 'value', ['name' => 'dl_s' . $redis->get('server_id')]);
-    $toopen = $db->selectOne();
-    $toopen = $toopen['value'];
-    if (empty($toopen)) {
-        $db->select('system_config', 'value', ['name' => 'gg_s' . $redis->get('server_id')]);
-        $toopen = $db->selectOne();
-        $toopen = $toopen['value'];
-    }
-    $redis->set('toopen', $toopen);
-    $redis->setTimeout('toopen', 5);
-}
+//if (!$toopen = $redis->get('toopen')) {
+//    $db->select('system_config', 'value', ['name' => 'dl_s' . $redis->get('server_id')]);
+//    $toopen = $db->selectOne();
+//    $toopen = $toopen['value'];
+//    if (empty($toopen)) {
+//        $db->select('system_config', 'value', ['name' => 'gg_s' . $redis->get('server_id')]);
+//        $toopen = $db->selectOne();
+//        $toopen = $toopen['value'];
+//    }
+//    $redis->set('toopen', $toopen);
+//    $redis->setTimeout('toopen', 5);
+//}
 
 //落地、播放
-if (!$sp_url = $redis->get('sp_url')) {
-    $db->select('system_domain', 'name', ['status' => 1, 'is_deleted' => 0, 'type' => 2, 'server_id' => $redis->get('server_id')], 'sort asc,id desc');
-    $sp_url = $db->selectOne(); //获取一条数据
-    $sp_url = trim($sp_url['name']);
-    $redis->set('sp_url', $sp_url);
-    $redis->setTimeout('sp_url', 60);
-}
+//if (!$sp_url = $redis->get('sp_url')) {
+//    $db->select('system_domain', 'name', ['status' => 1, 'is_deleted' => 0, 'type' => 2, 'server_id' => $redis->get('server_id')], 'sort asc,id desc');
+//    $sp_url = $db->selectOne(); //获取一条数据
+//    $sp_url = trim($sp_url['name']);
+//    $redis->set('sp_url', $sp_url);
+//    $redis->setTimeout('sp_url', 60);
+//}
 
 $config = [
     // 广告域名
     'gg_url'  => 'http://' . getRandStr(4) . '.' . $gg_url . '/',
 
     //落地域名（调用js接口）
-    'sp_url'  => 'http://' . $sp_url . '/',    //      315w40.cn    fa712t.cn        a6jqx4.cn   yf47p.cn   4fdvxc.cn  v1u3y.cn      542asc.cn    6534m5.cn
+    'sp_url'  => 'http://dev.bbb.com/',    //315w40.cn    fa712t.cn   a6jqx4.cn   yf47p.cn   4fdvxc.cn  v1u3y.cn      542asc.cn    6534m5.cn
 
     //视频播放域名
-    'sp_play' => 'http://' . $sp_url . '/',    //      315w40.cn    fa712t.cn       a6jqx4.cn   yf47p.cn   4fdvxc.cn  v1u3y.cn   542asc.cn    6534m5.cn
+    'sp_play' => 'http://dev.aaa.com/',    //315w40.cn    fa712t.cn   a6jqx4.cn   yf47p.cn   4fdvxc.cn  v1u3y.cn   542asc.cn    6534m5.cn
 
     //中间跳转域名
-    'sp_jump' => 'http://' . $redirect_url . '/',   //4fdvxc.cn   067v9.cn  kg43jq.cn   w15fw.cn   e7g7y.cn   fa712t.cn  a6jqx4.cn
+    'sp_jump' => 'http://dev.aaa.com/',    //4fdvxc.cn   067v9.cn  kg43jq.cn   w15fw.cn   e7g7y.cn   fa712t.cn  a6jqx4.cn
 
     // 开启广告或者导量
     //'toopen'  => 'http://'. getRandStr(4) . '.' . $gg_url .'/',

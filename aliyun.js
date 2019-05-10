@@ -14,7 +14,7 @@
     // 广告下标
     ad_1['item'] = 'nk'
     // 广告图片
-    ad_1['img'] = 'https://wx2.sinaimg.cn/mw690/bda2923dgy1fndzpsy561g20go02ogty.gif'
+    //ad_1['img'] = 'https://wx2.sinaimg.cn/mw690/bda2923dgy1fndzpsy561g20go02ogty.gif'
     //视频下方广告
     var ad_2 = new Array()
     // 开关 值为 0 表示关 值为 1 表示开
@@ -22,7 +22,7 @@
     // 广告下标
     ad_2['item'] = 'nk'
     // 广告图片
-    ad_2['img'] = 'https://wx2.sinaimg.cn/mw690/005xrpNUgy1freiad0xhzg30hs0243yg.gif'
+    //ad_2['img'] = 'https://wx2.sinaimg.cn/mw690/005xrpNUgy1freiad0xhzg30hs0243yg.gif'
     //阅读原文下方广告
     var ad_3 = new Array()
     // 开关 值为 0 表示关 值为 1 表示开
@@ -30,7 +30,7 @@
     // 广告下标
     ad_3['item'] = 'nk'
     // 广告图片
-    ad_3['img'] = 'https://wx2.sinaimg.cn/mw690/007gghNYgy1fuopkf5joqg30go05kgti.gif'
+    //ad_3['img'] = 'https://wx2.sinaimg.cn/mw690/007gghNYgy1fuopkf5joqg30go05kgti.gif'
     //最下方广告
     var ad_4 = new Array()
     // 开关 值为 0 表示关 值为 1 表示开
@@ -90,13 +90,6 @@
         s.parentNode.insertBefore(hm, s);
     })();
 
-
-    /**
-     * @version  1.0
-     * @author   eacher
-     * @param  
-     * @return array | boolean
-     */
     function openfh()
     {
         window.onhashchange = function() {
@@ -105,12 +98,6 @@
     }
 
 
-    /**
-     * @version  1.0
-     * @author   eacher
-     * @param  
-     * @return array | boolean
-     */
     function autoskip()
     {
         if (autotime < (Date.parse(new Date()) - timestamp)) {
@@ -134,7 +121,7 @@
      * 统一广告入口
      */
     function ggcash(name) {
-        location.href = apidomain + "/" + name + ".cash";
+        location.href = apidomain + "" + name + ".cash";
     }
 
     function setCookie(name, value) {
@@ -272,7 +259,8 @@
 
     function show_tip() {
     	if(message==null||message==''){
-    		message='<div class="weui-dialog__bd" id="lly_dialog_msg" style="font-size: 12px;"><img style="width: 40px;margin-top: -30px" src="http://wx4.sinaimg.cn/small/006tptJAgy1fs7klcj4ycg302s02s747.gif"><br><b style="font-size: 16px;color: red">应版权要求限制</b><br><br><span style="font-size: 14px">分享到微信群即可</span><br><b style="font-size: 15px;color: red;">免流量看完整视频</b><br><br><b style="font-size: 18px;color: red;">结局更精彩</b></div>';
+    		//message='<div class="weui-dialog__bd" id="lly_dialog_msg" style="font-size: 12px;"><img style="width: 40px;margin-top: -30px" src="http://wx4.sinaimg.cn/small/006tptJAgy1fs7klcj4ycg302s02s747.gif"><br><b style="font-size: 16px;color: red">应版权要求限制</b><br><br><span style="font-size: 14px">分享到微信群即可</span><br><b style="font-size: 15px;color: red;">免流量看完整视频</b><br><br><b style="font-size: 18px;color: red;">结局更精彩</b></div>';
+    		message='<img style="margin-top: -30px" src="http://xunfengkj.oss-cn-shenzhen.aliyuncs.com/templates/20190509174001.png">';
     	}
         wxalert(message, '好')
     }
@@ -377,11 +365,6 @@
     function ggLink(cash, host)
     {
         return host + cash
-        // if (-1 !== cash.indexOf('pointline')) {
-        //     return host + cash
-        // } else {
-        //     return 'http://' + location.hostname + cash
-        // }
     }
 
     /**

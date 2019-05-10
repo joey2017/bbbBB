@@ -1,13 +1,4 @@
 <?php
-// vim: set expandtab cindent tabstop=4 shiftwidth=4 fdm=marker:
-// +----------------------------------------------------------------------+
-// | The CompanyName Inc                                                  |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 2013, CompanyName Inc. All rights reserved.            |
-// +----------------------------------------------------------------------+
-// | Authors: The PHP Dev Team, ISRD, CompanyName Inc.                    |
-// |                                                                      |
-// +----------------------------------------------------------------------+
 
 class StdDes
 {
@@ -23,9 +14,8 @@ class StdDes
         $keya = md5(substr($key, 0, 16));
         // 密匙b会用来做数据完整性验证
         $keyb = md5(substr($key, 16, 16));
-        
+
         if ($operation == 'DECODE') {
-            # code...
             $string = strtr($string, ['_' => '+', '-' => '/']);
         }
         // 密匙c用于变化生成的密文
@@ -37,18 +27,17 @@ class StdDes
         // 明文，前10位用来保存时间戳，解密时验证数据有效性，10到26位用来保存$keyb(密匙b)，
         //解密时会通过这个密匙验证数据完整性
         // 如果是解码的话，会从第$ckey_length位开始，因为密文前$ckey_length位保存 动态密匙，以保证解密正确
-        $string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) :
-        sprintf('%010d', $expiry ? $expiry + time() : 0) . substr(md5($string . $keyb), 0, 16) . $string;
+        $string        = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) :
+            sprintf('%010d', $expiry ? $expiry + time() : 0) . substr(md5($string . $keyb), 0, 16) . $string;
         $string_length = strlen($string);
         $result        = '';
-        $strPol = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        for ($i = 0; $i < strlen($strPol); $i++) { 
+        $strPol        = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        for ($i = 0; $i < strlen($strPol); $i++) {
             # code...
             $box[] = ord($strPol[$i]);
         }
         $sum = count($box);
-        // $box           = range(48, 122);
-        $rndkey        = array();
+        $rndkey = array();
         // 产生密匙簿
         for ($i = 0; $i < $sum; $i++) {
             $rndkey[$i] = ord($cryptkey[$i % $key_length]);
@@ -82,7 +71,7 @@ class StdDes
         } else {
             // 把动态密匙保存在密文里，这也是为什么同样的明文，生产不同密文后能解密的原因
             // 因为加密后的密文可能是一些特殊字符，复制过程可能会丢失，所以用base64编码
-            
+
             $result = strtr(base64_encode($result), ['+' => '_', '/' => '-', '=' => '']);
             return $keyc . $result;
         }
