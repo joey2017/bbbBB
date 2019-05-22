@@ -13,6 +13,7 @@ $database = require_once(__DIR__ . "/src/config.php");
 
 //$redis = new Redis();
 //$redis->connect('127.0.0.1', 6379);
+//$redis->setTimeout();
 //开始连接数据库
 //$db = Mysql::newClass();
 //$db->pdoConnect([$database['dsn'], $database['username'], $database['password']]);
@@ -64,16 +65,16 @@ $database = require_once(__DIR__ . "/src/config.php");
 
 $config = [
     // 广告域名
-    'gg_url'  => 'http://' . getRandStr(4) . '.' . $gg_url . '/',
+    'gg_url'  => '85jjb6.cn',
 
     //落地域名（调用js接口）
-    'sp_url'  => 'http://dev.bbb.com/',    //315w40.cn    fa712t.cn   a6jqx4.cn   yf47p.cn   4fdvxc.cn  v1u3y.cn      542asc.cn    6534m5.cn
+    'sp_url'  => 'dev.bbb.com',    //315w40.cn    fa712t.cn   a6jqx4.cn   yf47p.cn   4fdvxc.cn  v1u3y.cn      542asc.cn    6534m5.cn
 
     //视频播放域名
-    'sp_play' => 'http://dev.aaa.com/',    //315w40.cn    fa712t.cn   a6jqx4.cn   yf47p.cn   4fdvxc.cn  v1u3y.cn   542asc.cn    6534m5.cn
+    'sp_play' => 'dev.aaa.com',    //315w40.cn    fa712t.cn   a6jqx4.cn   yf47p.cn   4fdvxc.cn  v1u3y.cn   542asc.cn    6534m5.cn
 
     //中间跳转域名
-    'sp_jump' => 'http://dev.aaa.com/',    //4fdvxc.cn   067v9.cn  kg43jq.cn   w15fw.cn   e7g7y.cn   fa712t.cn  a6jqx4.cn
+    'sp_jump' => 'dev.aaa.com',    //4fdvxc.cn   067v9.cn  kg43jq.cn   w15fw.cn   e7g7y.cn   fa712t.cn  a6jqx4.cn
 
     // 开启广告或者导量
     //'toopen'  => 'http://'. getRandStr(4) . '.' . $gg_url .'/',
@@ -85,15 +86,4 @@ $config = [
     'key'     => 'xiaoshen.miyao',
 ];
 
-// 广告或导量开关
-$toopen == 1 ? $config['toopen'] = $config['gg_url'] : (!empty($toopen) ? $config['toopen'] = $toopen : '');
-
 return $config;
-
-function getRandStr($length)
-{
-    $str = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
-    shuffle($str);
-    $str = implode('', array_slice($str, 0, $length));
-    return $str;
-}

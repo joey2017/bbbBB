@@ -99,7 +99,6 @@ class JSSDK {
 				$data = new stdClass();
 				$data->expire_time = time() + 4000;
 				$data->access_token = $access_token;
-				//file_put_contents('aaa', 'ddd');
 				file_put_contents($file, json_encode($data));
 			} else {
 				file_put_contents($file, json_encode($res));

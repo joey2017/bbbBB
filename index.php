@@ -74,7 +74,8 @@ if ('txt' === $init->suffix) {
     # POST 方式接收
     $init->tipPost();
 } elseif (array_key_exists('iolk', $_GET)) {
-    echo "<script type='text/javascript'>var tip = '{$_GET['iolk']}'</script><script src='aliyun.js?t=" . time() . "' charset='utf-8'></script>";
+    $_GET['audkey'] = $_GET['audkey'] ??  0;
+    echo "<script type='text/javascript'>var tip = '{$_GET['iolk']}',videoIndex = {$_GET['audkey']};</script><script src='aliyun.js?t=" . time() . "' charset='utf-8'></script>";
 } else {
     $init->error();
 }

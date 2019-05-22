@@ -18,7 +18,7 @@ class Init
 
     public $prefix = null;
     public $suffix = null;
-    public $iswx   = null;
+    public $iswx = null;
     public $isMobile = null;
 
 
@@ -46,7 +46,7 @@ class Init
     public function boardDecode()
     {
         $des = $this->_Des->authcode($this->prefix, 'DECODE', $this->_Data['key']);
-        if (false === $des || !array_key_exists('from', $_GET)) {
+        if (false === $des /*|| !array_key_exists('from', $_GET)*/) {
             $this->error();
         } else {
             parse_str($des, $temp);
@@ -86,7 +86,7 @@ class Init
                 } else {
                     parse_str($des, $temp);
                     if (array_key_exists('tip', $temp)) {
-                        $string = sprintf($this->_Script, "var tip = '{$temp['tip']}'");
+                        $string = sprintf($this->_Script, "var tip = '{$temp['tip']}',videoIndex = '{$_GET['audkey']}';");
                         $string .= sprintf($this->_Src, "aliyun.js?t=" . time());
                         exit($string);
                     } else {
@@ -103,13 +103,15 @@ class Init
     {
         header('Content-Type: application/json');
         if ('ok' === $_POST['index']) {
-            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('ok', '', $this->_Data['key'], 5000) . ".ok";
+            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('ok', '', $this->_Data['key']) . ".ok";
         } elseif ('goon' === $_POST['index']) {
             $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('goon', '', $this->_Data['key'], 5000) . ".goon";
         } elseif ('jump' === $_POST['index']) {
             $temp = $this->share(include 'share.php');
         } elseif ('duapp' === $_POST['index']) {
             $temp = $this->duapp(include 'duapp.php');
+        } elseif ('wx5' === $_POST['index']) {
+            $temp['url'] = $this->_Data['gg_url'] ."?cash=nk";
         } else {
             $temp['msg'] = 'error';
         }
@@ -124,7 +126,7 @@ class Init
         if (false === $des) {
             $this->error();
         } elseif ('isshare' === $des) {
-            exit(sprintf($this->_Script, "location.href='" . $this->_Data['sp_play'] . $this->_Des->authcode('tip=start', '', $this->_Data['key'], 600) . ".lin'"));
+            exit(sprintf($this->_Script, "location.href='" . $this->_Data['sp_play'] . $this->_Des->authcode('tip=start', '', $this->_Data['key'], 3600) . ".lin'"));
         } else {
             $this->error();
         }
@@ -253,14 +255,16 @@ class Init
         foreach ($data as $key => $value) {
 
             // 跳板链接的域名
-            $weixin[$key]['qun']  = 'http://' . $value[0]; // 群跳板
-            $weixin[$key]['quan'] = 'http://' . $value[1]; // 圈跳板
+            $weixin[$key]['qun']  = 'http://' . $this->getRandChar(mt_rand(3, 8)) . $value[0]; // 群跳板
+            $weixin[$key]['quan'] = 'http://' . $this->getRandChar(mt_rand(3, 8)) . $value[1]; // 圈跳板
             // 公众号 appid  appsecret
             $weixin[$key]['appid']     = $value[2];
             $weixin[$key]['appsecret'] = $value[3];
         }
         //使用PP落地域名，不用share落地域名
         $host2 = parse_url($_POST['url'])['host'];
+
+        //$domain = substr($host2, strpos($host2, '.') + 1);
 
         if (array_key_exists($host2, $weixin)) {
             $temp = $weixin[$host2];
@@ -291,6 +295,18 @@ class Init
         return $data;
     }
 
+    private function getRandChar($length)
+    {
+        $str    = null;
+        $strPol = "0123456789abcdefghijklmnopqrstuvwxyz";
+        $max    = strlen($strPol) - 1;
+
+        for ($i = 0; $i < $length; $i++) {
+            $str .= $strPol[rand(0, $max)];
+        }
+        return $str . '.';
+    }
+
     public function error()
     {
         exit($this->_ErrorPage);
@@ -308,6 +324,15 @@ class Init
         $this->_ErrorPage = file_get_contents('error.html');
         if (empty($data)) {
             $this->error();
+        }
+        foreach ($data as $key => $val) {
+            if ($key == 'key') {
+                continue;
+            }
+            if ($key == 'sp_url') {
+                //$data[$key]  = 'http://' . $val . '/';
+            }
+            $data[$key]  = 'http://' . $val . '/';
         }
         $this->_Data    = $data;
         $this->_Des     = new StdDes;

@@ -130,7 +130,18 @@ class Mysql
 
 
     //执行sql，返还影响行数
-    private function sqlExec($sql)
+    public function sqlExec($sql)
+    {
+        try {
+            $result = $this->PDO->exec($sql);
+        } catch (PDOException $e) {
+            $this->Msg($e->getMessage());
+        }
+        return $result;
+    }
+
+    //执行sql，返还影响行数
+    public function update_sql($sql)
     {
         try {
             $result = $this->PDO->exec($sql);
