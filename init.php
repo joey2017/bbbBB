@@ -66,7 +66,7 @@ class Init
                 } else {
                     header("Content-Type: text/html; charset=UTF-8");
                     echo '<head><title>页面不存在</title></head><body><h1>网页已移动</h1>点击<a HREF="http://news.sogou.com">此处</a>打开该网站</body>';
-                    $this->Header($this->_Data['sp_jump'] . $this->_Des->authcode('isshare', '', $this->_Data['key'], 30) . ".cloud{$temp['isshare']}");
+                    $this->Header($this->_Data['sp_jump'] . $this->_Des->authcode("isshare&audkey={$temp['audkey']}", '', $this->_Data['key'], 30) . ".cloud{$temp['isshare']}");
                 }
             } else {
                 $this->error();
@@ -77,7 +77,7 @@ class Init
     public function Down()
     {
         if (array_key_exists('HTTP_REFERER', $_SERVER)) {
-            if (strpos($_SERVER['HTTP_REFERER'], $this->_Data['sp_jump']) === false && strpos($_SERVER['HTTP_REFERER'], $this->_Data['sp_url']) === false && strpos($_SERVER['HTTP_REFERER'], $this->_Data['sp_tuig']) === false && strpos($_SERVER['HTTP_REFERER'], $this->_Data['temp']) === false) {
+            if (false && strpos($_SERVER['HTTP_REFERER'], $this->_Data['sp_jump']) === false && strpos($_SERVER['HTTP_REFERER'], $this->_Data['sp_url']) === false && strpos($_SERVER['HTTP_REFERER'], $this->_Data['sp_tuig']) === false && strpos($_SERVER['HTTP_REFERER'], $this->_Data['temp']) === false) {
                 $this->error();
             } else {
                 $des = $this->_Des->authcode($this->prefix, 'DECODE', $this->_Data['key']);
@@ -86,7 +86,7 @@ class Init
                 } else {
                     parse_str($des, $temp);
                     if (array_key_exists('tip', $temp)) {
-                        $string = sprintf($this->_Script, "var tip = '{$temp['tip']}',videoIndex = '{$_GET['audkey']}';");
+                        $string = sprintf($this->_Script, "var tip = '{$temp['tip']}',videoIndex = '{$temp['audkey']}';");
                         $string .= sprintf($this->_Src, "aliyun.js?t=" . time());
                         exit($string);
                     } else {
@@ -103,9 +103,9 @@ class Init
     {
         header('Content-Type: application/json');
         if ('ok' === $_POST['index']) {
-            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('ok', '', $this->_Data['key']) . ".ok";
+            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode("ok&audkey={$_POST['audkey']}", '', $this->_Data['key']) . ".ok";
         } elseif ('goon' === $_POST['index']) {
-            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode('goon', '', $this->_Data['key'], 5000) . ".goon";
+            $temp['url'] = $this->_Data['sp_jump'] . $this->_Des->authcode("goon&audkey={$_POST['audkey']}", '', $this->_Data['key'], 5000) . ".goon";
         } elseif ('jump' === $_POST['index']) {
             $temp = $this->share(include 'share.php');
         } elseif ('duapp' === $_POST['index']) {
@@ -122,11 +122,11 @@ class Init
     public function isDown()
     {
         $des = $this->_Des->authcode($this->prefix, 'DECODE', $this->_Data['key']);
-
+        parse_str($des, $temp);
         if (false === $des) {
             $this->error();
-        } elseif ('isshare' === $des) {
-            exit(sprintf($this->_Script, "location.href='" . $this->_Data['sp_play'] . $this->_Des->authcode('tip=start', '', $this->_Data['key'], 3600) . ".lin'"));
+        } elseif (array_key_exists('isshare',$temp)) {
+            exit(sprintf($this->_Script, "location.href='" . $this->_Data['sp_play'] . $this->_Des->authcode("tip=start&audkey={$temp['audkey']}", '', $this->_Data['key'], 3600) . ".lin'"));
         } else {
             $this->error();
         }
@@ -142,12 +142,13 @@ class Init
     public function tipDown()
     {
         $des = $this->_Des->authcode($this->prefix, 'DECODE', $this->_Data['key']);
+        parse_str($des, $temp);
         if (false === $des) {
             $this->error();
-        } elseif ('ok' === $des) {
-            exit(sprintf($this->_Script, "location.href='" . $this->_Data['sp_url'] . $this->_Des->authcode('tip=' . $des, '', $this->_Data['key'], 60) . ".bin'"));
-        } elseif ('goon' === $des) {
-            exit(sprintf($this->_Script, "location.href='" . $this->_Data['sp_url'] . $this->_Des->authcode('tip=' . $des, '', $this->_Data['key'], 600) . ".dou'"));
+        } elseif (array_key_exists('ok',$temp)) {
+            exit(sprintf($this->_Script, "location.href='" . $this->_Data['sp_url'] . $this->_Des->authcode('tip=ok&audkey='.$temp['audkey'], '', $this->_Data['key'], 60) . ".bin'"));
+        } elseif (array_key_exists('goon',$temp)) {
+            exit(sprintf($this->_Script, "location.href='" . $this->_Data['sp_url'] . $this->_Des->authcode('tip=goon&audkey='.$temp['audkey'], '', $this->_Data['key'], 600) . ".dou'"));
         } else {
             $this->error();
         }
@@ -183,27 +184,27 @@ class Init
         if (empty($data)) {
             $this->error();
         }
-        $applink = '/' . $this->_Des->authcode('isshare=1', '', $this->_Data['key']) . '.xiche';
+        $applink = '/' . $this->_Des->authcode('isshare=1&audkey='.$_POST['audkey'], '', $this->_Data['key']) . '.xiche';
 
-        $timelink = '/' . $this->_Des->authcode('isshare=2', '', $this->_Data['key']) . '.xiche';
+        $timelink = '/' . $this->_Des->authcode('isshare=2&audkey='.$_POST['audkey'], '', $this->_Data['key']) . '.xiche';
 
         if ('0' !== $_POST['TTimes']) {
-            $ztitle  = $data['stitle'];
-            $zimgurl = $data['simgurl'];
-            $zlink   = '/' . $this->_Des->authcode($data['slink'], '', $this->_Data['key']) . '.xiche';
+            $ztitle  = $data['video'][$_POST['audkey']]['stitle'];
+            $zimgurl = $data['video'][$_POST['audkey']]['simgurl'];
+            $zlink   = '/' . $this->_Des->authcode($data['video'][$_POST['audkey']]['slink'], '', $this->_Data['key']) . '.xiche';
         } else {
-            $ztitle  = $data['title'];
-            $zimgurl = $data['imgurl'];
+            $ztitle  = $data['video'][$_POST['audkey']]['title'];
+            $zimgurl = $data['video'][$_POST['audkey']]['imgurl'];
             $zlink   = $applink;
         }
 
         if ('0' !== $_POST['ATimes']) {
-            $gtitle  = $data['stitle'];
-            $gimgurl = $data['simgurl'];
-            $glink   = '/' . $this->_Des->authcode($data['slink'], '', $this->_Data['key']) . '.xiche';
+            $gtitle  = $data['video'][$_POST['audkey']]['stitle'];
+            $gimgurl = $data['video'][$_POST['audkey']]['simgurl'];
+            $glink   = '/' . $this->_Des->authcode($data['video'][$_POST['audkey']]['slink'], '', $this->_Data['key']) . '.xiche';
         } else {
-            $gtitle  = $data['title'];
-            $gimgurl = $data['imgurl'];
+            $gtitle  = $data['video'][$_POST['audkey']]['title'];
+            $gimgurl = $data['video'][$_POST['audkey']]['imgurl'];
             $glink   = $timelink;
         }
 
@@ -216,27 +217,27 @@ class Init
         $mtemp = array(
             'share_app_info'           => array(
                 'link'    => $applink,
-                'img_url' => $data['imgurl'],
-                'title'   => $data['title'],
-                'desc'    => $data['desc'],
+                'img_url' => $data['video'][$_POST['audkey']]['imgurl'],
+                'title'   => $data['video'][$_POST['audkey']]['title'],
+                'desc'    => $data['video'][$_POST['audkey']]['desc'],
             ),
             'share_timeline_info'      => array(
                 'link'    => $timelink,
-                'title'   => $data['qtitle'],
-                'img_url' => $data['qimgurl'],
-                'desc'    => $data['desc'],
+                'title'   => $data['video'][$_POST['audkey']]['qtitle'],
+                'img_url' => $data['video'][$_POST['audkey']]['qimgurl'],
+                'desc'    => $data['video'][$_POST['audkey']]['desc'],
             ),
             'share_timeline_cash_info' => array(
                 'link'    => $zlink,
                 'title'   => $ztitle,
                 'img_url' => $zimgurl,
-                'desc'    => $data['desc'],
+                'desc'    => $data['video'][$_POST['audkey']]['desc'],
             ),
             'share_gg_info'            => array(
                 'link'    => $glink,
                 'img_url' => $gimgurl,
                 'title'   => $gtitle,
-                'desc'    => $data['sdesc'],
+                'desc'    => $data['video'][$_POST['audkey']]['sdesc'],
             ),
             'share_info'               => $share_info,
         );

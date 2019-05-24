@@ -7,7 +7,7 @@
  */
 
 return [
-    'dsn'      => "mysql:host=111.230.221.134;dbname=wx;charset=utf8",
-    'username' => "wx",
-    'password' => "JKzfSHsZw2DYD5Jk"
+    'dsn'      => "mysql:host=127.0.0.1;dbname=admin_v3;charset=utf8",
+    'username' => "root",
+    'password' => "root"
 ];
