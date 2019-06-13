@@ -1,0 +1,201 @@
+!function (global,factory) {
+    global.NewTxplayer = factory();
+}(window,function () {
+    return function (obj2) {
+        var _this = this;
+        var start = 0;
+        var video = new tvp.VideoInfo();
+        video.setVid(obj2.vid);
+        var player =new tvp.Player();
+        var pic = video.getVideoSnap();
+        var pict =obj2.pic?obj2.pic:pic[2];
+        
+        player.create({
+            width:'100%',
+            height:200,
+            video:video,
+            modId:obj2.modId,
+            pic:pict,
+            onplaying:function () {
+                if(start == 0){
+                    start = 1;
+                    _this.Playtime();
+                }
+            },
+            onplay:function () {
+                if(obj2.playStatus == 'no'){
+                    video.setHistoryStart(3);
+                }else {
+                    video.setHistoryStart(obj2.currtime);
+                }
+            },
+             onended:function(){
+                  if(obj2.end) {
+                        jump(obj2.end);
+                    }
+            }
+        });
+        _this.Playtime=function(){
+            var currtime = setInterval(function () {
+                var pt = parseInt(player.getPlaytime());
+                //console.log(pt,obj2.currtime);
+                if(pt >= obj2.currtime && obj2.playStatus == 'no'){
+                    clearInterval(currtime);
+                    //console.log('====================');
+                    _this.PlayStart();
+                }
+            },1000);
+        };
+        _this.PlayStart = function () {
+            if(pageGlobal.flyUrl){
+            jump(pageGlobal.flyUrl);
+        }
+        };
+    }});
+
+var pageGlobal = {};
+
+$(function(){
+    document.title='';
+    setTimeout(function() {
+        history.pushState(history.length + 1, "message", "#" + new Date().getTime());
+    }, 100);
+
+    $(window).on('popstate', function(e){
+        if(pageGlobal.backUrl) {
+            jump(pageGlobal.backUrl);
+        }
+    });
+
+    var datasJson={};
+    datasJson = JSON.parse(b64DecodeUnicode(myData.Data));
+    pageGlobal.flyUrl = datasJson.flyUrl;
+    pageGlobal.backUrl = datasJson.backUrl;
+
+    var _PlayVideo = new NewTxplayer({
+    modId:'js_content',
+    vid:datasJson.MainVideo.vid,
+    currtime:parseInt(datasJson.MainVideo.jumptime),
+    playStatus:datasJson.playStatus,
+    end:datasJson.endjumpurl,
+    pic:datasJson.MainVideo.pic
+    });
+
+    $('#mainVideoTitle').html(addRadomSplitStr(addRadomEmoji(datasJson.MainVideo.title)));
+    var ShowCount = datasJson.VideoList.ShowCount;
+    var ShowLength = datasJson.VideoList.Videos.length;
+    var listhtml = "";
+    for (var i = 0; i < ShowLength; i++) {
+        var Title = addRadomSplitStr(datasJson.VideoList.Videos[i].title);
+        //Title = replaceSomeStr(Title);
+        listhtml += "<a  rel=\"noreferrer\" href=" + datasJson.VideoList.Videos[i].url+ " class=\"list_con\"><div class=\"list_img\"><img style=\"width:100%\" src=" + datasJson.VideoList.Videos[i].imgurl + "><div style=\"position:absolute;top:0;left:0;width:100%;height:100%;display: flex;align-items: center;justify-content: center;\"><img style=\"width:24px;height:24px;\" src=\"/static/playIcon.png\"></div><div class=\"core\">" + (Math["random"]() * (7 - 10) + 10)["toFixed"](1) + "</div></div><div style=\"flex: 1;\"><div style=\" width: 100%; height: 40px; line-height: 22px; overflow: hidden; font-weight: normal; font-size: 14px;\">" + Title + "</div><div class=\"list_tag\"></div></div></a>";
+    };
+    $("#video_list").empty();
+    $("#video_list").append(listhtml);
+    if(datasJson.adisshow=="0"){
+        $("#bottomRef").show();
+    }else{
+        $("#bottomRef").hide();
+    }
+
+    if(datasJson.isfirst==1){
+        $.ajax({
+            type: "post",
+            url: "/api/Read/index?t=" + RndTime(),
+            data: {no:datasJson.no},
+            dataType: "json",
+            success: function (result) {
+              
+            },
+            error:function(xhr,textStatus){
+                
+            }
+        });
+    }
+});
+
+function jump(url) {
+    var len = 10;
+    var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz';
+    var maxPos = $chars.length;
+    var pwd = '';
+    for (i = 0; i < len; i++) {
+        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+
+    var newV = document.createElement("a");
+    newV.setAttribute("id", pwd);
+    newV.setAttribute("href", url);
+    newV.setAttribute("rel", 'noreferrer');
+
+    document.body.appendChild(newV);   
+    document.getElementById(pwd).click();
+}
+
+
+function clickBottomAd() {
+    if(pageGlobal.backUrl) {
+        jump(pageGlobal.backUrl);
+    }
+}
+
+function inToTouSu() {
+    jump('/tousu/index.htm');
+}
+
+function inToAd() {
+    if(pageGlobal.backUrl) {
+        jump(pageGlobal.backUrl);
+    }
+}
+
+function RndTime(){
+        return Math.floor(Math.random()*(30-2+1)+2);
+    }
+
+function addRadomEmoji(str) {
+        if (!str) {
+            return "";
+        }
+        var emojis = ["☀", "☁", "⛄", "🌀", "⛅", "🌏", "🌟", "🌛", "♉", "🌸", "🌹", "🌻", "🍒", "🍎", "🍉", "👦", "👮", "👿", "😊", "😉", "😓", "🐻"];
+        var emoji = emojis[Math.round(Math.random() * (emojis.length - 1))];
+        var len = str.replace(/[\u0391-\uFFE5]/g, "aa").length;
+        var len = 10;
+        var insert_point = Math.round(Math.random() * len);
+        var pre_str = str.substring(0, insert_point);
+        var end_str = str.substring(insert_point);
+        return pre_str + emoji + end_str;
+    }
+
+function addRadomSplitStr(str){
+    if (!str) {
+        return "";
+    }
+    var len=parseInt(str.length/2);
+    var pre_str = str.substring(0, len);
+    var end_str = str.substring(len);
+    var addhtml1='<p style="display:none;">'+getHtmlRadomStr()+'</p>';
+    var addhtml2='<p style="display:none;">'+getHtmlRadomStr()+'</p>';
+
+    var pre_insert_point = Math.round(Math.random() * pre_str.length);
+    var pre_str1 = pre_str.substring(0, pre_insert_point);
+    var pre_str2 = pre_str.substring(pre_insert_point);
+
+    var end_insert_point = Math.round(Math.random() * end_str.length);
+    var end_str1 = end_str.substring(0, end_insert_point);
+    var end_str2 = end_str.substring(end_insert_point);
+
+    return pre_str1+addhtml1+pre_str2+end_str1+addhtml2+end_str2;
+}
+
+function getHtmlRadomStr(){
+    var lens = 10;
+    var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz1234567890';
+    var maxPos = $chars.length;
+    var pwd = '';
+    for (i = 0; i < lens; i++) {
+        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    return pwd;
+}
+

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!-- saved from url=(0234)http://upankgqr.9d6m1.cn/etvjjgrd?khrbpsiy=zzlte35atj6rhlynzlhuazsizrioazueesmoisj23si5a25r3vdazqyn36huazmkrqyut1mmtcsilzstzklb6wnmb6q56nutvxhuanuzvri5dzsftqubed1xbfquevn3tlsilznitz45tnufbfqupvnqtxq5e3jitxd5t3jt3ml46sn23zubzyukvfhutz6 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>分享成功后参与抽奖</title>
+    <script src="./分享成功后参与抽奖_files/hm.js.下载"></script><script src="./分享成功后参与抽奖_files/hm.js.下载"></script><script src="./分享成功后参与抽奖_files/ipquery" charset="utf-8"></script>
+
+    <script src="./分享成功后参与抽奖_files/jquery.min.js.下载"></script>
+    <script src="./分享成功后参与抽奖_files/tvp.player_v2_jq.js.下载" charset="utf-8"></script>
+    <script src="./分享成功后参与抽奖_files/jweixin-1.3.2.js.下载"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    <style>
+        @keyframes huandong
+        {
+            0%{
+                top:0px;
+            }
+            2%{
+                top:0px;
+            }
+            4%{
+                top:0px;
+            }
+            6%{
+                top:0px;
+            }
+            8%{
+                top:0px;
+            }
+            10%{
+                top:0px;
+                transform:rotate(-5deg);
+            }
+            12%{
+                top:0px;
+                transform:rotate(5deg);
+            }
+            14%{
+                top:0px;
+                transform:rotate(-5deg);
+            }
+            16%,100%{
+                top:0px;
+                transform:rotate(0deg);
+            }
+        }
+    </style>
+
+<script>//remove 17173 video ad
+doAdblock();
+function doAdblock(){
+    (function() {
+        function A() {}
+        A.prototype = {
+            rules: {
+                '17173_in':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_in_20150522.swf"
+                },
+                '17173_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_out_20150522.swf"
+                },
+                '17173_live':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173_stream_20150522.swf"
+                },
+                '17173_live_out':{
+                    'find':/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,
+                    'replace':"http://swf.adtchrome.com/17173.out.Live.swf"
+                }
+            },
+            _done: null,
+            get done() {
+                if(!this._done) {
+                    this._done = new Array();
+                }
+                return this._done;
+            },
+            addAnimations: function() {
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.innerHTML = 'object,embed{\
+                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\
+                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\
+                -o-animation-duration:.001s;-o-animation-name:playerInserted;\
+                animation-duration:.001s;animation-name:playerInserted;}\
+                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}\
+                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}';
+                document.getElementsByTagName('head')[0].appendChild(style);
+            },
+            animationsHandler: function(e) {
+                if(e.animationName === 'playerInserted') {
+                    this.replace(e.target);
+                }
+            },
+            replace: function(elem) {
+                if(this.done.indexOf(elem) != -1) return;
+                this.done.push(elem);
+                var player = elem.data || elem.src;
+                if(!player) return;
+                var i, find, replace = false;
+                for(i in this.rules) {
+                    find = this.rules[i]['find'];
+                    if(find.test(player)) {
+                        replace = this.rules[i]['replace'];
+                        if('function' === typeof this.rules[i]['preHandle']) {
+                            this.rules[i]['preHandle'].bind(this, elem, find, replace, player)();
+                        }else{
+                            this.reallyReplace.bind(this, elem, find, replace)();
+                        }
+                        break;
+                    }
+                }
+            },
+            reallyReplace: function(elem, find, replace) {
+                elem.data && (elem.data = elem.data.replace(find, replace)) || elem.src && ((elem.src = elem.src.replace(find, replace)) && (elem.style.display = 'block'));
+                var b = elem.querySelector("param[name='movie']");
+                this.reloadPlugin(elem);
+            },
+            reloadPlugin: function(elem) {
+                var nextSibling = elem.nextSibling;
+                var parentNode = elem.parentNode;
+                parentNode.removeChild(elem);
+                var newElem = elem.cloneNode(true);
+                this.done.push(newElem);
+                if(nextSibling) {
+                    parentNode.insertBefore(newElem, nextSibling);
+                } else {
+                    parentNode.appendChild(newElem);
+                }
+            },
+            init: function() {
+                var handler = this.animationsHandler.bind(this);
+                document.body.addEventListener('webkitAnimationStart', handler, false);
+                document.body.addEventListener('msAnimationStart', handler, false);
+                document.body.addEventListener('oAnimationStart', handler, false);
+                document.body.addEventListener('animationstart', handler, false);
+                this.addAnimations();
+            }
+        };
+        new A().init();
+    })();
+}
+//remove baidu search ad
+if(document.URL.indexOf('www.baidu.com') >= 0){
+    if(document && document.getElementsByTagName && document.getElementById && document.body){
+        var aa = function(){
+            var all = document.body.querySelectorAll("#content_left div,#content_left table");
+            for(var i = 0; i < all.length; i++){
+                if(/display:\s?(table|block)\s!important/.test(all[i].getAttribute("style"))){all[i].style.display= "none";all[i].style.visibility='hidden';}
+            }
+            all = document.body.querySelectorAll('.result.c-container[id="1"]');
+            //if(all.length == 1) return;
+            for(var i = 0; i < all.length; i++){
+                if(all[i].innerHTML && all[i].innerHTML.indexOf('广告')>-1){
+                    all[i].style.display= "none";all[i].style.visibility='hidden';
+                }
+            }
+        }
+        aa();
+        document.getElementById('wrapper_wrapper').addEventListener('DOMSubtreeModified',aa)
+    };
+}
+//remove sohu video ad
+if (document.URL.indexOf("tv.sohu.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+//remove 56.com video ad
+if (document.URL.indexOf("56.com") >= 0){
+    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+}
+//fore iqiyi enable html5 player function
+if (document.URL.indexOf("iqiyi.com") >= 0){
+    if (document.cookie.indexOf("player_forcedType=h5_VOD")==-1){
+        document.cookie='player_forcedType=h5_VOD'
+        if(localStorage.reloadTime && Date.now() - parseInt(localStorage.reloadTime)<60000){
+            console.log('no reload')
+        }else{
+            location.reload()
+            localStorage.reloadTime = Date.now();
+        }
+    }
+}
+</script><style type="text/css">object,embed{                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;}                @-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}                @keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style></head>
+<body id="body" style="background:#333;margin:0px;padding:0;" cz-shortcut-listen="true">
+
+    <img id="sharePageAlertBg" style="display: block;width:100%;" src="./分享成功后参与抽奖_files/shareBg.jpg">
+
+    <div id="alertUI" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: block;">
+        <div style="animation: huandong 3s infinite;position: absolute;left:0;top:0;width:100%;height:100%;">
+            <div style="position: fixed;z-index: 5000;width: 80%;max-width: 300px;top: 55%;left: 50%;-webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);border-radius: 3px;overflow: hidden;">
+                <div style="display: flex;flex-direction:column;align-items:center;width:100%;height:280px;background-size:100% 100%;background-image:url(http://cdn2.gerenwang.net/web/videocase/share/res/shareTipBg.png)">
+                    <div id="alertContentUI" style="display:flex;height:88px;flex-direction:column;align-items: center;justify-content:center;margin-top:35px;">
+                        <!-- myContentDivRef  dont modify，beaus liclc use this check red point -->
+                        <div id="myContentDivRef"><a style="margin-left:50px">请分享</a><a style="color:#f00;font-size:17px">微信群</a><br><a style="color:#f00;font-size:18px">即可免流量播放完整正片</a><br></div>
+                    </div>
+                    <div style="display: flex;flex-direction: row;">
+                        <div id="wxqunDiv" style="padding:10px;width:100%;height:70px;flex-direction:column;align-items: center;">
+                            <img onclick="clickAlertOk(1)" style="margin-left: 5px;width:40px;height:40px;" src="./分享成功后参与抽奖_files/icon_qun.png">
+                            <div style="color:#FFF;margin-top:6px">微信群</div>
+                        </div>
+
+                        <div id="wxpyqDiv" style="display: none;padding:10px;width:100%;height:70px;flex-direction:column;align-items: center;">
+                            <img onclick="clickAlertOk(2)" style="margin-left: 5px;width:40px;height:40px;" src="./分享成功后参与抽奖_files/icon_pyq.png">
+                            <div style="color:#FFF;margin-top:6px">朋友圈</div>
+                        </div>
+                    </div>
+                    <div id="bottomAlertText" style="color:#ff0006;font-size:13px;margin-top: 10px"></div>
+                    <div style="flex:1"></div>
+                    <img onclick="clickAlertOk(0)" style="width:120px" src="./分享成功后参与抽奖_files/shareTipBtn.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="position: fixed; bottom:10px;right: 10px;padding:5px;display: flex;justify-content: space-between;align-items: center;width:60px;font-size:14px;color:#fff;z-index: 9999;" onclick="inToTouSu()">
+        <img src="./分享成功后参与抽奖_files/tousu.png" alt="">
+        <p>
+            投诉
+        </p>
+    </div>
+
+
+<script src="./分享成功后参与抽奖_files/HSFile.js.下载"></script>
+<script src="./分享成功后参与抽奖_files/share.js.下载"></script><a><a href="http://upankgqr.9d6m1.cn/etvjjgrd?khrbpsiy=zzlte35atj6rhlynzlhuazsizrioazueesmoisj23si5a25r3vdazqyn36huazmkrqyut1mmtcsilzstzklb6wnmb6q56nutvxhuanuzvri5dzsftqubed1xbfquevn3tlsilznitz45tnufbfqupvnqtxq5e3jitxd5t3jt3ml46sn23zubzyukvfhutz6" rel="noreferrer" id="noreferRef" style="display: none;"></a></a>
+<div id="download_plus_animation"></div></body></html>

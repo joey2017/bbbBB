@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://D:/2j6b7j.cn/.idea/2j6b7j.cn.iml" filepath="D:/2j6b7j.cn/.idea/2j6b7j.cn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../admin/.idea/admin.iml" filepath="$PROJECT_DIR$/../admin/.idea/admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/bbb.iml" filepath="$PROJECT_DIR$/.idea/bbb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../general/.idea/general.iml" filepath="$PROJECT_DIR$/../general/.idea/general.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lmideas520.com/.idea/lmideas520.com.iml" filepath="$PROJECT_DIR$/../lmideas520.com/.idea/lmideas520.com.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../my-vbot/.idea/my-vbot.iml" filepath="$PROJECT_DIR$/../my-vbot/.idea/my-vbot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../redpack/.idea/redpack.iml" filepath="$PROJECT_DIR$/../redpack/.idea/redpack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shang-hai-2/.idea/shang-hai-2.com.iml" filepath="$PROJECT_DIR$/../shang-hai-2/.idea/shang-hai-2.com.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../share1/.idea/share.iml" filepath="$PROJECT_DIR$/../share1/.idea/share.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wechat_tool/.idea/wechat_tool.iml" filepath="$PROJECT_DIR$/../wechat_tool/.idea/wechat_tool.iml" />
+    </modules>
+  </component>
+</project>

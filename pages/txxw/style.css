@@ -1,0 +1,34 @@
+body,ul,li,h1,h2,h3,h4,h5,h6,dl,dd,p,form{ margin: 0; padding:0;}
+a,a:hover{text-decoration: none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0)}
+li{ list-style:none;}
+img{border: 0px;}
+em,i{font-style: normal}
+table{ border-collapse: collapse}
+input,button,select,textarea{outline: none; padding: 0rem; margin: 0rem}
+input,textarea{ border: 0; background:none;}
+textarea{ resize: none}
+input,select,button{ -webkit-appearance: none;-webkit-tap-highlight-color: transparent; -webkit-border-radius: 0rem; -moz-border-radius: 0rem;border-radius: 0rem}
+input[type="submit"],input[type="reset"],input[type="button"],input[type="text"],select,button{ -webkit-appearance: none;-webkit-tap-highlight-color: transparent; -webkit-border-radius: 0rem; border-radius: 0rem; -moz-border-radius: 0rem}
+html{line-height:1.6;}
+body{max-width:720px;  margin: 0 auto; font-family: "Î¢ÈíÑÅºÚ"}
+h1, h2, h3, h4, h5, h6 {font-weight: 400; font-size: 16px;}
+.head { width: 100%;height: 44px;line-height: 44px;border-bottom: 1px solid #e0e0e0;position: fixed;z-index: 8;background: #fff;}
+.head:before {content: "";display: inline-block;background: url(../images/logo.png) no-repeat 14px 0;background-size: auto 30px;width: 114px;height: 30px;vertical-align: sub;margin-right: 6px;margin-top: 5px;}
+.title{ color: #111; font-size: 22px; font-weight: bold; margin-bottom: 5px; padding:5px 5% 5px}
+.main{ width: 90%; margin: 0 auto;}
+.main .word{ font-size: 16px; line-height: 26px; color: #4c4c4c;text-align: justify; margin-bottom: 20px}
+.center{ text-align: center; padding: 10px 0}
+.center img{ display: inline-block; max-width: 100%}
+.code img{ width: 60%; margin: 0 auto 10px; display: block;}
+h6{ text-align: center;}
+.fixed{overflow: hidden;position: fixed;bottom: 0; height:110px; background-color: #4c7edf;padding: 5px 0 0px;border-top: 1px solid #ccc;max-width: 720px;width: 100%;margin: 0 auto;}
+.fixed div img{width:100px; position:absolute; top:50%; margin-top:-50px; left:5%}
+.foot{overflow: hidden;position: fixed;bottom: 0;background-color: #fff; height: 80px; border-top: 1px solid #ccc;max-width: 720px;width: 100%;margin: 0 auto;}
+.foot img{margin-top:18px; margin-left:5%; line-height:90px;width:50px;}
+.foot div{ position: absolute; left: 75px;top: 5px}
+
+@media screen and (max-width: 370px) {
+    .foot{ height: 100px}
+    .foot img{ margin-top: 27px}
+    .foot div span{display: block;}
+}
