@@ -13,5 +13,6 @@
     <orderEntry type="module" module-name="wechat_tool" />
     <orderEntry type="module" module-name="redpack" />
     <orderEntry type="module" module-name="lmideas520.com" />
+    <orderEntry type="module" module-name="my-vbot" />
   </component>
 </module>

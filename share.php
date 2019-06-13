@@ -1,30 +1,20 @@
 <?php
 
-require_once(__DIR__ . "/src/Mysql.class.php");
-$database = require_once(__DIR__ . "/src/config.php");
+use think\facade\Db;
 
-$redis = new Redis();
-$redis->connect('127.0.0.1', 6379);
+try {
+    $result = Db::table('system_app')
+        ->where('bind_domain_ld', $_SERVER['HTTP_HOST'])
+        ->where('status', 1)
+        ->where('is_deleted', 0)
+        ->find();
+    return $result ? [$result['bind_domain_ld'] => [$result['bind_domain_qun'], $result['bind_domain_quan'], $result['appid'], $result['appsecret']]] : [];
 
-$db = Mysql::newClass();
-$db->pdoConnect([$database['dns'], $database['username'], $database['password']]);
-
-if (!$appinfo = $redis->get('bind_domain')) {
-    $db->select('system_domain', 'name', ['status' => 1, 'is_deleted' => 0, 'type' => 2, 'server_id' => $redis->get('server_id')], 'sort asc,id desc');
-    $sp_url = $db->selectOne(); //获取一条数据
-    $sp_url = trim($sp_url['name']);
-
-    $db->select('system_app', '*', ['status' => 1, 'is_deleted' => 0, 'bind_domain_ld' => "$sp_url"], 'sort asc,id desc');
-    $result = $db->selectOne(); //获取一条数据
-
-    $appinfo[$result['bind_domain_ld']] = [$result['bind_domain_qun'], $result['bind_domain_quan'], $result['appid'], $result['appsecret']];
-
-    $redis->set('bind_domain', json_encode($appinfo));
-    $redis->setTimeout('bind_domain', 60);
-
-} else {
-    $appinfo = json_decode($appinfo, true);
+} catch (\Exception $e) {
+    $info = ['error' => $e->getMessage()];
+    file_put_contents(__DIR__ . '/error.log', json_encode($info) . PHP_EOL, FILE_APPEND);
 }
 
-return $appinfo;
+
+
 

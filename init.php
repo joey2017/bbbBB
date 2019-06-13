@@ -256,8 +256,9 @@ class Init
         foreach ($data as $key => $value) {
 
             // 跳板链接的域名
-            $weixin[$key]['qun']  = 'http://' . $this->getRandChar(mt_rand(3, 8)) . $value[0]; // 群跳板
-            $weixin[$key]['quan'] = 'http://' . $this->getRandChar(mt_rand(3, 8)) . $value[1]; // 圈跳板
+            $weixin[$key]['qun']   = 'http://' . $value[0] . '/' . $this->_Des->authcode('isshare=1&audkey=0', '', $this->_Data['key']) . '.xiche'; // 群跳板
+            $weixin[$key]['quan']  = 'http://' . $value[1] . '/' . $this->_Des->authcode('isshare=2&audkey=0', '', $this->_Data['key']) . '.xiche'; // 圈跳板
+
             // 公众号 appid  appsecret
             $weixin[$key]['appid']     = $value[2];
             $weixin[$key]['appsecret'] = $value[3];
@@ -288,7 +289,7 @@ class Init
                 'nonceStr'  => $temp['nonceStr'],
                 'signature' => $temp['signature'],
                 'appId'     => $temp['appId'],
-                'jsApiList' => ["onMenuShareTimeline", "onMenuShareAppMessage", "hideMenuItems", "showMenuItems", "hideOptionMenu"],
+                'jsApiList' => ["onMenuShareTimeline", "onMenuShareAppMessage", "hideOptionMenu", "showOptionMenu", "hideMenuItems", "showMenuItems", "closeWindow"],
             ),
             'qun'    => $qun,
             'quan'   => $quan,
@@ -331,9 +332,10 @@ class Init
                 continue;
             }
             if ($key == 'sp_url') {
-                //$data[$key]  = 'http://' . $val . '/';
+                $data[$key]  = 'http://' . $val . '/';
+            } else {
+                $data[$key]  = 'http://' . $this->getRandChar(mt_rand(3,8)). $val . '/';
             }
-            $data[$key]  = 'http://' . $val . '/';
         }
         $this->_Data    = $data;
         $this->_Des     = new StdDes;

@@ -1,6 +1,7 @@
 <?php
 
 include_once 'init.php';
+require __DIR__ . '/vendor/autoload.php';
 
 $init = new Init;
 

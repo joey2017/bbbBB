@@ -42,134 +42,135 @@ return [
     'sdesc'           => $desc,//广告或带线描述
     */
 
-    'video'   => [
+    'video'           => [
         [
-             // 群标题
-             'title'           => $diqu . '市内扫黄，被山庄老板多事叫嚣叫来社会人，结果出人意料！' . $fuhao[array_rand($fuhao)],
-             // 群图片
-             'imgurl'          => 'http://cdn.xunfengkj.com/templates/20190520115949.jpg',
-             // 群描述
-             'desc'            => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
-             // 圈标题
-             'qtitle'          => $diqu . '市内扫黄，被山庄老板多事叫嚣叫来社会人，结果出人意料！' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
-             // 圈图片
-             'qimgurl'         => 'http://cdn.xunfengkj.com/templates/20190520115949.jpg',
+            // 群标题
+            'title'   => $diqu . '市内扫黄，被山庄老板多事叫嚣叫来社会人，结果出人意料！' . $fuhao[array_rand($fuhao)],
+            // 群图片
+            'imgurl'  => 'http://cdn.xunfengkj.com/templates/20190520115949.jpg',
+            // 群描述
+            'desc'    => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
+            // 圈标题
+            'qtitle'  => $diqu . '市内扫黄，被山庄老板多事叫嚣叫来社会人，结果出人意料！' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
+            // 圈图片
+            'qimgurl' => 'http://cdn.xunfengkj.com/templates/20190520115949.jpg',
 
-             // 广告或带线链接
-             'slink'           => $slink,// 广告或带线链接
-             'stitle'          => $stitle,// 广告或带线标题
-             'simgurl'         => $qimgurl,// 广告或带线图片
-             'sdesc'           => $desc,//广告或带线描述]
+            // 广告或带线链接
+            'slink'   => $slink,// 广告或带线链接
+            'stitle'  => $stitle,// 广告或带线标题
+            'simgurl' => $qimgurl,// 广告或带线图片
+            'sdesc'   => $desc,//广告或带线描述]
         ],
         [
             // 群标题
-            'title'           => '穷就该被看不起？进城打拼穷小子回乡看望未婚妻被胯下羞辱，结果...' . $fuhao[array_rand($fuhao)],
+            'title'   => '穷就该被看不起？进城打拼穷小子回乡看望未婚妻被胯下羞辱，结果...' . $fuhao[array_rand($fuhao)],
             // 群图片
-            'imgurl'          => 'http://cdn.xunfengkj.com/templates/20190520115942.jpg',
+            'imgurl'  => 'http://cdn.xunfengkj.com/templates/20190520115942.jpg',
             // 群描述
-            'desc'            => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
+            'desc'    => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
             // 圈标题
-            'qtitle'          => '穷就该被看不起？进城打拼穷小子回乡看望未婚妻被胯下羞辱，结果...' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
+            'qtitle'  => '穷就该被看不起？进城打拼穷小子回乡看望未婚妻被胯下羞辱，结果...' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
             // 圈图片
-            'qimgurl'         => 'http://cdn.xunfengkj.com/templates/20190520115942.jpg',
+            'qimgurl' => 'http://cdn.xunfengkj.com/templates/20190520115942.jpg',
 
             // 广告或带线链接
-            'slink'           => $slink,// 广告或带线链接
-            'stitle'          => $stitle,// 广告或带线标题
-            'simgurl'         => $qimgurl,// 广告或带线图片
-            'sdesc'           => $desc,//广告或带线描述]
+            'slink'   => $slink,// 广告或带线链接
+            'stitle'  => $stitle,// 广告或带线标题
+            'simgurl' => $qimgurl,// 广告或带线图片
+            'sdesc'   => $desc,//广告或带线描述]
         ],
         [
             // 群标题
-            'title'           => '父亲带女儿去吃饭，被嚣张执法人员暴打，速看，十分钟删视频' . $fuhao[array_rand($fuhao)],
+            'title'   => '父亲带女儿去吃饭，被嚣张执法人员暴打，速看，十分钟删视频' . $fuhao[array_rand($fuhao)],
             // 群图片
-            'imgurl'          => 'http://cdn.xunfengkj.com/templates/20190521145623.jpg',
+            'imgurl'  => 'http://cdn.xunfengkj.com/templates/20190521145623.jpg',
             // 群描述
-            'desc'            => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
+            'desc'    => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
             // 圈标题
-            'qtitle'          => '父亲带女儿去吃饭，被嚣张执法人员暴打，速看，十分钟删视频' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
+            'qtitle'  => '父亲带女儿去吃饭，被嚣张执法人员暴打，速看，十分钟删视频' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
             // 圈图片
-            'qimgurl'         => 'http://cdn.xunfengkj.com/templates/20190521145623.jpg',
+            'qimgurl' => 'http://cdn.xunfengkj.com/templates/20190521145623.jpg',
 
             // 广告或带线链接
-            'slink'           => $slink,// 广告或带线链接
-            'stitle'          => $stitle,// 广告或带线标题
-            'simgurl'         => $qimgurl,// 广告或带线图片
-            'sdesc'           => $desc,//广告或带线描述]
+            'slink'   => $slink,// 广告或带线链接
+            'stitle'  => $stitle,// 广告或带线标题
+            'simgurl' => $qimgurl,// 广告或带线图片
+            'sdesc'   => $desc,//广告或带线描述]
         ],
         [
             // 群标题
-            'title'           => $diqu . '董事长开破车回乡看望父母，却被弟妹赶出家门，一怒之下...' . $fuhao[array_rand($fuhao)],
+            'title'   => $diqu . '董事长开破车回乡看望父母，却被弟妹赶出家门，一怒之下...' . $fuhao[array_rand($fuhao)],
             // 群图片
-            'imgurl'          => 'http://cdn.xunfengkj.com/templates/20190521145702.jpg',
+            'imgurl'  => 'http://cdn.xunfengkj.com/templates/20190521145702.jpg',
             // 群描述
-            'desc'            => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
+            'desc'    => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
             // 圈标题
-            'qtitle'          => $diqu . '董事长开破车回乡看望父母，却被弟妹赶出家门，一怒之下...' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
+            'qtitle'  => $diqu . '董事长开破车回乡看望父母，却被弟妹赶出家门，一怒之下...' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
             // 圈图片
-            'qimgurl'         => 'http://cdn.xunfengkj.com/templates/20190521145702.jpg',
+            'qimgurl' => 'http://cdn.xunfengkj.com/templates/20190521145702.jpg',
 
             // 广告或带线链接
-            'slink'           => $slink,// 广告或带线链接
-            'stitle'          => $stitle,// 广告或带线标题
-            'simgurl'         => $qimgurl,// 广告或带线图片
-            'sdesc'           => $desc,//广告或带线描述]
+            'slink'   => $slink,// 广告或带线链接
+            'stitle'  => $stitle,// 广告或带线标题
+            'simgurl' => $qimgurl,// 广告或带线图片
+            'sdesc'   => $desc,//广告或带线描述]
         ],
         [
             // 群标题
-            'title'           => $diqu . '退伍军人骑自行车不小心刮到豪车被打，视频偷拍流出，结果让人大吃一惊' . $fuhao[array_rand($fuhao)],
+            'title'   => $diqu . '退伍军人骑自行车不小心刮到豪车被打，视频偷拍流出，结果让人大吃一惊' . $fuhao[array_rand($fuhao)],
             // 群图片
-            'imgurl'          => 'http://cdn.xunfengkj.com/templates/20190521145720.jpg',
+            'imgurl'  => 'http://cdn.xunfengkj.com/templates/20190521145720.jpg',
             // 群描述
-            'desc'            => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
+            'desc'    => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
             // 圈标题
-            'qtitle'          => $diqu . '退伍军人骑自行车不小心刮到豪车被打，视频偷拍流出，结果让人大吃一惊' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
+            'qtitle'  => $diqu . '退伍军人骑自行车不小心刮到豪车被打，视频偷拍流出，结果让人大吃一惊' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
             // 圈图片
-            'qimgurl'         => 'http://cdn.xunfengkj.com/templates/20190521145720.jpg',
+            'qimgurl' => 'http://cdn.xunfengkj.com/templates/20190521145720.jpg',
 
             // 广告或带线链接
-            'slink'           => $slink,// 广告或带线链接
-            'stitle'          => $stitle,// 广告或带线标题
-            'simgurl'         => $qimgurl,// 广告或带线图片
-            'sdesc'           => $desc,//广告或带线描述]
+            'slink'   => $slink,// 广告或带线链接
+            'stitle'  => $stitle,// 广告或带线标题
+            'simgurl' => $qimgurl,// 广告或带线图片
+            'sdesc'   => $desc,//广告或带线描述]
         ],
         [
             // 群标题
-            'title'           => '探长被小混混枪击，被打断腿，结果...' . $fuhao[array_rand($fuhao)],
+            'title'   => '探长被小混混枪击，被打断腿，结果...' . $fuhao[array_rand($fuhao)],
             // 群图片
-            'imgurl'          => 'http://cdn.xunfengkj.com/templates/20190521145802.jpg',
+            'imgurl'  => 'http://cdn.xunfengkj.com/templates/20190521145802.jpg',
             // 群描述
-            'desc'            => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
+            'desc'    => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
             // 圈标题
-            'qtitle'          => '探长被小混混枪击，被打断腿，结果...' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
+            'qtitle'  => '探长被小混混枪击，被打断腿，结果...' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
             // 圈图片
-            'qimgurl'         => 'http://cdn.xunfengkj.com/templates/20190521145802.jpg',
+            'qimgurl' => 'http://cdn.xunfengkj.com/templates/20190521145802.jpg',
 
             // 广告或带线链接
-            'slink'           => $slink,// 广告或带线链接
-            'stitle'          => $stitle,// 广告或带线标题
-            'simgurl'         => $qimgurl,// 广告或带线图片
-            'sdesc'           => $desc,//广告或带线描述]
+            'slink'   => $slink,// 广告或带线链接
+            'stitle'  => $stitle,// 广告或带线标题
+            'simgurl' => $qimgurl,// 广告或带线图片
+            'sdesc'   => $desc,//广告或带线描述]
         ],
         [
             // 群标题
-            'title'           => $diqu . '社会人无法无天，强行拆掉部对大院，私令暴怒！' . $fuhao[array_rand($fuhao)],
+            'title'   => $diqu . '社会人无法无天，强行拆掉部对大院，私令暴怒！' . $fuhao[array_rand($fuhao)],
             // 群图片
-            'imgurl'          => 'http://cdn.xunfengkj.com/templates/20190521145850.jpg',
+            'imgurl'  => 'http://cdn.xunfengkj.com/templates/20190521145850.jpg',
             // 群描述
-            'desc'            => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
+            'desc'    => '最新热点！你有' . mt_rand(6, 20) . '位好友正在观看！',
             // 圈标题
-            'qtitle'          => $diqu . '社会人无法无天，强行拆掉部对大院，私令暴怒！' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
+            'qtitle'  => $diqu . '社会人无法无天，强行拆掉部对大院，私令暴怒！' . $fuhao[array_rand($fuhao)],//修车厂美女被搞
             // 圈图片
-            'qimgurl'         => 'http://cdn.xunfengkj.com/templates/20190521145850.jpg',
+            'qimgurl' => 'http://cdn.xunfengkj.com/templates/20190521145850.jpg',
 
             // 广告或带线链接
-            'slink'           => $slink,// 广告或带线链接
-            'stitle'          => $stitle,// 广告或带线标题
-            'simgurl'         => $qimgurl,// 广告或带线图片
-            'sdesc'           => $desc,//广告或带线描述]
+            'slink'   => $slink,// 广告或带线链接
+            'stitle'  => $stitle,// 广告或带线标题
+            'simgurl' => $qimgurl,// 广告或带线图片
+            'sdesc'   => $desc,//广告或带线描述]
         ],
     ],
+
     // 分享提示语
     'share_info_qun'  => [
         'app0'      => '分享成功,请继续分享到<span style="font-size: 30px;color: #f5294c">1</span>个群即可观看！',

@@ -1,89 +1,87 @@
 <?php
-// vim: set expandtab cindent tabstop=4 shiftwidth=4 fdm=marker:
-// +----------------------------------------------------------------------+
-// | The CompanyName Inc                                                  |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 2013, CompanyName Inc. All rights reserved.            |
-// +----------------------------------------------------------------------+
-// | Authors: The PHP Dev Team, ISRD, CompanyName Inc.                    |
-// |                                                                      |
-// +----------------------------------------------------------------------+
-require_once(__DIR__ . "/src/Mysql.class.php");
-$database = require_once(__DIR__ . "/src/config.php");
 
-//$redis = new Redis();
-//$redis->connect('127.0.0.1', 6379);
-//$redis->setTimeout();
-//开始连接数据库
-//$db = Mysql::newClass();
-//$db->pdoConnect([$database['dsn'], $database['username'], $database['password']]);
+use think\facade\Db;
 
-//if (!$gg_url = $redis->get('gg_url')) {
-//    $db->select('system_domain', '*', ['status' => 1, 'is_deleted' => 0, 'type' => 5], 'sort asc,id desc');
-//    $gg_url = $db->selectOne(); //获取一条数据
-//    $gg_url = trim($gg_url['name']);
-//    $redis->set('gg_url', $gg_url);
-//    $redis->setTimeout('gg_url', 5);
-//}
-//if (!$redirect_url = $redis->get('redirect_url')) {
-//    if (!$redis->get('server_id')) {
-//        $inner_ip = $_SERVER['SERVER_ADDR'];
-//        $db->select('system_server', 'id,ip', ['status' => 1, 'is_deleted' => 0, 'inner_ip' => "$inner_ip"]);
-//        $ip_info = $db->selectOne();
-//        $redis->set('server_id', $ip_info['id']);
-//    }
-//    $db->select('system_domain', 'name', ['status' => 1, 'is_deleted' => 0, 'type' => 3, 'server_id' => $redis->get('server_id')], 'sort asc,id desc');
-//    $redirect_url = $db->selectOne();
-//    $redirect_url = trim($redirect_url['name']);
-//    $redis->set('redirect_url', $redirect_url);
-//    $redis->setTimeout('redirect_url', 5);
-//
-//}
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
 
-//广告
-//if (!$toopen = $redis->get('toopen')) {
-//    $db->select('system_config', 'value', ['name' => 'dl_s' . $redis->get('server_id')]);
-//    $toopen = $db->selectOne();
-//    $toopen = $toopen['value'];
-//    if (empty($toopen)) {
-//        $db->select('system_config', 'value', ['name' => 'gg_s' . $redis->get('server_id')]);
-//        $toopen = $db->selectOne();
-//        $toopen = $toopen['value'];
-//    }
-//    $redis->set('toopen', $toopen);
-//    $redis->setTimeout('toopen', 5);
-//}
+//广告域名
+if (!$gg_url = $redis->get('gg_url')) {
+    $gg_url = Db::table('system_domain')
+        ->field('name')
+        ->where('status', 1)
+        ->where('is_deleted', 0)
+        ->where('type', 5)
+        ->order(['sort' => 'asc', 'id' => 'desc'])
+        ->find();
+    $gg_url = trim($gg_url['name']);
+    $redis->set('gg_url', $gg_url);
+    $redis->setTimeout('gg_url', 30);
+}
 
-//落地、播放
-//if (!$sp_url = $redis->get('sp_url')) {
-//    $db->select('system_domain', 'name', ['status' => 1, 'is_deleted' => 0, 'type' => 2, 'server_id' => $redis->get('server_id')], 'sort asc,id desc');
-//    $sp_url = $db->selectOne(); //获取一条数据
-//    $sp_url = trim($sp_url['name']);
-//    $redis->set('sp_url', $sp_url);
-//    $redis->setTimeout('sp_url', 60);
-//}
+//服务器id
+if (!$server_id = $redis->get('server_id')) {
+    $ip_info = Db::table('system_server')
+        ->field('id,ip')
+        ->where('inner_ip', $_SERVER['SERVER_ADDR'])
+        ->where('status', 1)
+        ->where('is_deleted', 0)
+        ->order('id', 'desc')
+        ->find();
+    $redis->set('server_id', $ip_info['id']);
+}
 
-$config = [
+//中间跳转
+if (!$redirect_url = $redis->get('redirect_url')) {
+    $redirect_url = Db::table('system_domain')
+        ->field('name')
+        ->where('status', 1)
+        ->where('is_deleted', 0)
+        ->where('type', 3)
+        ->where('server_id', $server_id)
+        ->order(['sort' => 'asc', 'id' => 'desc'])
+        ->find();
+    $redirect_url = trim($redirect_url['name']);
+    $redis->set('redirect_url', $redirect_url);
+    $redis->setTimeout('redirect_url', 30);
+}
+//视频、落地域名
+if (!$sp_url = $redis->get('sp_url')) {
+    $sp_urls = Db::table('system_domain')
+        ->field('id,share_times,name')
+        ->where('status', 1)
+        ->where('is_deleted', 0)
+        ->where('type', 2)
+        ->where('server_id', $server_id)
+        ->order(['real_share_times' => 'asc', 'sort' => 'asc', 'id' => 'desc'])
+        ->find();
+    $sp_url  = trim($sp_urls['name']);
+    $redis->set('sp_url', $sp_url);
+    $redis->setTimeout('sp_url', 20);
+
+    Db::table('system_domain')->where('id', $sp_urls['id'])->update(['share_times' => $sp_urls['share_times'] + 1]);//更新信息
+}
+
+$redis->close();
+return [
     // 广告域名
-    'gg_url'  => '85jjb6.cn',
+    'gg_url'  => $gg_url,//  2749n0.cn  85jjb6.cn  elpxh.cn  ii62pd.cn  m59i4l.cn  u232a.cn
 
     //落地域名（调用js接口）
-    'sp_url'  => 'dev.bbb.com',    //315w40.cn    fa712t.cn   a6jqx4.cn   yf47p.cn   4fdvxc.cn  v1u3y.cn      542asc.cn    6534m5.cn
+    'sp_url'  => $sp_url, //    rasll.top    generators.top
 
     //视频播放域名
-    'sp_play' => 'dev.aaa.com',    //315w40.cn    fa712t.cn   a6jqx4.cn   yf47p.cn   4fdvxc.cn  v1u3y.cn   542asc.cn    6534m5.cn
+    'sp_play' => $sp_url, //    rasll.top    generators.top   smiga.top
 
     //中间跳转域名
-    'sp_jump' => 'dev.aaa.com',    //4fdvxc.cn   067v9.cn  kg43jq.cn   w15fw.cn   e7g7y.cn   fa712t.cn  a6jqx4.cn
+    'sp_jump' => $redirect_url, //  zltest.top     conceptedu.top
 
     // 开启广告或者导量
-    //'toopen'  => 'http://'. getRandStr(4) . '.' . $gg_url .'/',
+    //'toopen'  => $gg_url ,//
 
     // 推广域名
-    //'sp_tuig' => 'http://uskwgg.cn/',
+    //'sp_tuig' => $gg_url ,
 
     // 秘钥
     'key'     => 'xiaoshen.miyao',
 ];
-
-return $config;
