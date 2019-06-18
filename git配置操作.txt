@@ -1,0 +1,39 @@
+git配置
+$ git config --global user.name "Your Name"
+$ git config --global user.email your@example.com
+$ git config --global push.default simple
+
+git体验
+
+$ cd ~/Code/Laravel
+$ git init
+
+$ git add -A
+
+$ git status
+
+$ git commit -m "Initial commit"
+
+查看历史提交记录
+$ git log
+
+Git 进行恢复被删除文件：
+
+$ git checkout -f（将在暂存区的更改文件进行强制撤销）
+
+ssh-key设置
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_rsa
+
+cat ~/.ssh/id_rsa.pub
+
+代码上传
+$ cd ~/Code/Laravel
+$ git remote add origin git@github.com:your_username/hello_laravel.git
+$ git push -u origin master
+
+
+首先bios里面把legacy改成uefi，其次要确保磁盘分区表结构是GPT，如果是MBR是无法安装的。关于MBR转GPT，可以在安装界面按下Shift+F10，调出磁盘命令界面，输入以下内容:diskpartlist diskselect disk 0clean（这一步会清空硬盘所有的数据！）convert gpt(每一步都要按回车)然后就可以全新安装了
+
+
+办法二，用带UEFI启动功能的U盘重装系统，把BIOS里改为UEFI ONLY。这里的关键是用带UEFI启动功能的U盘，不是普通的安装U盘，包括微软官网下载的工具制作的安装U盘都不是带UEFI启动功能的，好多教程都没提这一点。
