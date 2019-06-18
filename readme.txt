@@ -11,3 +11,7 @@ composer require monolog/monolog
 location / {
     try_files $uri $uri/ /index.php?$query_string;
 }
+
+5.安装邮件服务
+composer require "swiftmailer/swiftmailer:^6.0"
+composer require phpmailer/phpmailer

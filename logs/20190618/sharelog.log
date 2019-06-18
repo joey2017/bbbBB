@@ -1,0 +1,3 @@
+[2019-06-18 01:06:24] sharelog.INFO: Welcome to QiuYu Blog. {"username":"QiuYu"} []
+[2019-06-18 01:06:24] sharelog.WARNING: Foo [] []
+[2019-06-18 01:06:24] sharelog.ERROR: Bar [] []
