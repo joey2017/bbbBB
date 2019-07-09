@@ -1,0 +1,2 @@
+var lo="广西", lc="南宁市";
+var localAddress={city:"南宁市", province:"广西"}

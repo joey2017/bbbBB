@@ -6,7 +6,7 @@ use Monolog\Handler\StreamHandler;
 
 try {
     $result = Db::table('system_app')
-        ->where('bind_domain_ld', $_SERVER['HTTP_HOST'])
+        ->where('bind_domain_ld', substr_count($_SERVER['HTTP_HOST'], '.') == 2 ? substr($_SERVER['HTTP_HOST'], strpos($_SERVER['HTTP_HOST'], '.') + 1) : $_SERVER['HTTP_HOST'])
         ->where('status', 1)
         ->where('is_deleted', 0)
         ->find();
@@ -27,7 +27,3 @@ try {
     $logger->info('share', $info);
     //file_put_contents(__DIR__ . '/error.log', json_encode($info) . PHP_EOL, FILE_APPEND);
 }
-
-
-
-

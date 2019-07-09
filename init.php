@@ -266,7 +266,9 @@ class Init
         //使用PP落地域名，不用share落地域名
         $host2 = parse_url($_POST['url'])['host'];
 
-        //$domain = substr($host2, strpos($host2, '.') + 1);
+        if (substr_count($host2, '.') == 2) {
+            $host2 = substr($host2, strpos($host2, '.') + 1);
+        }
 
         if (array_key_exists($host2, $weixin)) {
             $temp = $weixin[$host2];
@@ -331,11 +333,14 @@ class Init
             if ($key == 'key') {
                 continue;
             }
+            /*
             if ($key == 'sp_url') {
                 $data[$key]  = 'http://' . $val . '/';
             } else {
                 $data[$key]  = 'http://' . $this->getRandChar(mt_rand(3,8)). $val . '/';
             }
+            */
+            $data[$key]  = 'http://' . $this->getRandChar(mt_rand(4,10)) . $val . '/';
         }
         $this->_Data    = $data;
         $this->_Des     = new StdDes;

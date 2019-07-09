@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>加载中...</title>
+    <link rel="stylesheet" type="text/css" href="http://cdn.xunfengkj.com/style/index.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://imgcache.qq.com/tencentvideo_v1/tvp/js/tvp.player_v2.js"></script>
+    <script src="https://v.qq.com/iframe/tvp.config.js" charset="utf-8"></script>
+    <script src="http://cdn.xunfengkj.com/style/html5player.js" charset="utf-8"></script>
+</head>
+
+<body id="mainBody" style="display: block; background-color: rgb(255, 255, 255);" cz-shortcut-listen="true">
+<div id="iosDialog" style="background: rgb(0, 0, 0);">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog" style="">
+        <div class="weui-dialog__bd">精彩内容，即将呈现</div>
+        <div class="weui-dialog__ft">
+            <div onclick="goPlayVideo()" class="weui-dialog__btn weui-dialog__btn_primary">立即播放</div>
+        </div>
+    </div>
+</div>
+
+<div class="goback">
+    <div id="topLeftBackBtnRefText" class="goback_left" onclick="inToAd('左上角返回')">
+        <i id="topLeftBackBtnRefIcon" class="back_icon"></i>返回
+    </div>
+    <a onclick="inToTouSu(1)" class="goback_right">
+        <img style="margin-left: 8px;width:25px;height:25px" src="http://cdn.xunfengkj.com/templates/tousu.png" alt="">
+        &nbsp;投诉
+    </a>
+</div>
+<div class="container">
+    <div class="loading_video" id="loading_video" style="display: none;">
+    </div>
+    <div class="video_tag" id="video_tag">
+
+    </div>
+    <div class="video_div" id="videoDiv">
+        <div style="flex: 1;">
+            <a id="mainVideoTitle" style="font-weight:bold;font-size: 16px;flex-wrap: wrap"></a>
+            <div style="padding:2px;align-items: center;margin-top:8px;display:flex;flex-direction:row;border-radius: 6px;background: #fff;;border:1px solid #fff;box-shadow: #eee 1px 1px 2px 1px ;">
+                <div onclick="inToAd('头像返回')" style="display:flex;flex-direction:row;flex:1">
+                    <img id="headerIcon" style="margin-left: 8px;border-radius:20px;width:38px;height:38px" src="http://cdn.xunfengkj.com/templates/headIcon_31.jpg" alt="">
+                    <div style="display:flex;flex:1;flex-direction: column;justify-content: center;margin-left: 10px">
+                        <a id="headNick" style="font-size: 14px">富二代</a>
+                        <a id="headText" style="font-size: 13px;color:#999">已发布 188 个视频</a>
+                    </div>
+                </div>
+                <div onclick="goToShare()" style="display:flex;flex-direction:row;align-items: center;justify-content: center;">
+                    <a style="margin-right:10px;color:#f00;font-size: 14px;font-weight: bold">分享抽大奖</a>
+                    <img src="http://cdn.xunfengkj.com/templates/shareGiftIcon.png" class="wx_icon" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="video_list" id="video_list">
+
+    </div>
+    <div id="bottomRef" class="bottomshow">
+        <p><span>广告</span></p>
+        <a onclick="inToAd()" class="bottomliitem">
+            <img class="banneradimg" src="http://cdn.xunfengkj.com/templates/1532522368 .gif">
+        </a>
+    </div>
+    <div id="addIFame"></div>
+</div>
+<script type="text/javascript" src="http://cdn.xunfengkj.com/style/page_c_v1.js"></script>
+<script type="text/javascript" src="http://cdn.xunfengkj.com/style/common.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<textarea readonly="" style="font-size: 12pt; border: 0px; padding: 0px; margin: 0px; position: absolute; left: -9999px; top: 0px;"></textarea>
+<div id="pauseplay" style="display: none; opacity: 0; position: fixed; left: 0; right: 0; top: 65px; bottom: 0; background-color: rgba(80, 80, 80, 50); z-index: 1000000;">
+</div>
+
+<div id="tousu" style="position: fixed;bottom:10px;right: 10px;padding:5px;display: flex;justify-content: space-between;align-items: center;width:70px;font-size:14px;color:#fff;z-index: 9999;display:none;" onclick="inToTouSu(0)">
+    <img src="http://cdn.xunfengkj.com/templates/shareTousu.png" alt="" style="width:25px;height:25px!important;">
+    <p>
+        投诉
+    </p>
+</div>
+</body>
+</html>
+<script>
+    document.write(
+        '<img src="http://cdn.xunfengkj.com/style/20190516174636.jpg" id="fenxiang" style="display:block;width:100%;position:fixed;z-index:999;top:0;left:0;display:none">'
+    );
+</script>
